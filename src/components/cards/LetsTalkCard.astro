@@ -1,0 +1,15 @@
+---
+import CardBase from "../ui/CardBase.astro";
+import { Circle, MapPin } from "../icons";
+---
+
+<CardBase className="h-60 text-lg w-full flex flex-col justify-end gap-1">
+  <div class="flex gap-2 w-full text-xs justify-start items-center bg-red-500">
+    <Circle className="h-full fill-accent stroke-accent " />
+    <p>Avariable for work</p>
+  </div>
+  <div class="flex gap-2 w-full text-xs justify-start items-center bg-red-500">
+    <MapPin className="h-full  stroke-accent" />
+    <p>Mar del plata, Argentina</p>
+  </div>
+</CardBase>
