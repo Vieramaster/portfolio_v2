@@ -1,15 +1,33 @@
 ---
 import CardBase from "../ui/CardBase.astro";
-import { Circle, MapPin } from "../icons";
+import { Circle, MapPin, ArrowRight } from "../icons/ui";
+import Button from "../ui/Button.astro";
+
+const rowClass = "flex items-center gap-2 text-sm text-center";
+const iconClass = "size-[1em] mb-0.6";
 ---
 
-<CardBase className="h-60 text-lg w-full flex flex-col justify-end gap-1">
-  <div class="flex gap-2 w-full text-xs justify-start items-center bg-red-500">
-    <Circle className="h-full fill-accent stroke-accent " />
-    <p>Avariable for work</p>
+<CardBase className="w-full flex flex-col gap-3">
+  <div class={rowClass}>
+    <Circle class={`${iconClass} fill-accent stroke-accent shrink-0`} />
+    <p class="text-accent! animate-pulse duration-3000 leading-none">
+      AVAILABLE FOR WORK
+    </p>
   </div>
-  <div class="flex gap-2 w-full text-xs justify-start items-center bg-red-500">
-    <MapPin className="h-full  stroke-accent" />
-    <p>Mar del plata, Argentina</p>
+
+  <div class={rowClass}>
+    <MapPin
+      className={`${iconClass} stroke-accent fill-accent shrink-0`}
+      classNameCircle="stroke-surface fill-surface"
+    />
+    <p class="leading-none">Mar del Plata, Argentina</p>
   </div>
+
+  <Button>
+    <span class="m-auto w-5/6 text-surface!"> Let's Talk! </span>
+
+    <span class="m-auto w-1/6">
+      <ArrowRight class="m-auto stroke-surface" />
+    </span>
+  </Button>
 </CardBase>

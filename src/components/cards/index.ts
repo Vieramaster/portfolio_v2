@@ -1,2 +1,5 @@
 export { default as PhotoCard } from "./PhotoCard.astro"
 export { default as LetsTalkCard } from "./LetsTalkCard.astro"
+export { default as SocialCard } from "./SocialCard.astro"
+export { default as AboutMe } from "./AboutMe.astro"
+export { default as TechCard } from "./TechCard.astro"

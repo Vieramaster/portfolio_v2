@@ -1,0 +1,5 @@
+export { default as AstroIco } from "./AstroIco.astro"
+export { default as ReactIco } from "./ReactIco.astro"
+export { default as NextIco } from "./NextIco.astro"
+export { default as TailwindIco } from "./TailwindIco.astro"
+export { default as TypescriptIco } from "./TypescriptIco.astro"
