@@ -1,0 +1,50 @@
+---
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Martin Viera | Front-End Developer",
+  description = "Front-End Developer portfolio showcasing projects built with React, Next.js, Astro, TypeScript, and Tailwind CSS.",
+} = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: "Martin Viera",
+      jobTitle: "Front-End Developer",
+      url: Astro.site ?? undefined,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Mar del Plata",
+        addressCountry: "AR",
+      },
+    },
+    {
+      "@type": "WebSite",
+      name: "Martin Viera Portfolio",
+      description,
+      inLanguage: "en",
+    },
+  ],
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-background">
+    <slot />
+  </body>
+</html>

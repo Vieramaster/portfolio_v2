@@ -1,23 +1,31 @@
 ---
-import "../styles/global.css";
-import { PhotoCard, LetsTalkCard, SocialCard, AboutMe, TechCard } from "../components/cards/";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import {
+  SoftGridHero,
+  LetsTalk,
+  Projects,
+  AboutMe,
+  Techs,
+  Socials,
+  Achievements,
+} from "@/components/blocks";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Astro</title>
-  </head>
-  <body class="bg-background">
-    <main class="w-85 mx-auto py-5 grid grid-cols-1 gap-5 place-items-center">
-      <PhotoCard />
-      <LetsTalkCard />
-      <SocialCard />
-      <AboutMe />
-      <TechCard />
-    </main> 
-  </body>
-</html>
+<BaseLayout>
+  <main class="w-80 mx-auto py-5 grid grid-cols-1 gap-5 place-items-center">
+    <h1 class="sr-only">Martin Viera — Front-End Developer Portfolio</h1>
+    <SoftGridHero />
+    <LetsTalk />
+    <Projects />
+    <AboutMe />
+    <Techs />
+    <Achievements />
+    <Socials />
+  </main>
+</BaseLayout>
+
+<script>
+  import { initClient } from "@/logic/init";
+
+  initClient();
+</script>

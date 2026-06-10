@@ -1,0 +1,27 @@
+---
+import { SOFT_GRID_DEFAULTS } from "@/data/softGridDefaults";
+import type { SoftGridConfig } from "@/types";
+
+interface Props extends Partial<SoftGridConfig> {
+  id?: string;
+}
+
+const {
+  id = crypto.randomUUID(),
+  grid = SOFT_GRID_DEFAULTS.grid,
+  speedX = SOFT_GRID_DEFAULTS.speedX,
+  speedY = SOFT_GRID_DEFAULTS.speedY,
+} = Astro.props;
+---
+
+<section
+  class=" card relative w-full h-72 overflow-hidden "
+  data-soft-grid={id}
+  data-grid={grid}
+  data-speed-x={speedX}
+  data-speed-y={speedY}
+  aria-hidden="true"
+>
+  <canvas class="absolute inset-0 w-full h-full block" aria-hidden="true"
+  ></canvas>
+</section>

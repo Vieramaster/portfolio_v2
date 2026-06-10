@@ -1,0 +1,96 @@
+---
+import { ExternalLinkIco } from "../icons/ui";
+import { GitHubIco } from "../icons/social";
+import { TECH_STACK } from "@/data/techList";
+import type { Project } from "@/types";
+
+interface Props extends Project {
+  hidden?: boolean;
+  inert?: boolean;
+  "aria-hidden"?: "true" | "false";
+}
+
+const {
+  title,
+  description,
+  images,
+  imageAlt,
+  url,
+  github,
+  techs,
+  hidden,
+  inert,
+  "aria-hidden": ariaHidden,
+} = Astro.props;
+
+const iconClass = "size-5 hover:text-accent ease-in-out duration-200";
+const altText = imageAlt ?? `Screenshot of ${title} — ${description}`;
+---
+
+<article
+  class="flex flex-col gap-3 min-w-full"
+  hidden={hidden}
+  inert={inert}
+  aria-hidden={ariaHidden}
+>
+  <picture>
+    <source
+      media="(max-width: 767px)"
+      srcset={images.mobile}
+      type="image/webp"
+    />
+    <img
+      src={images.desktop}
+      alt={altText}
+      class="h-36 w-full rounded-md object-cover"
+    />
+  </picture>
+
+  <header class="flex items-center justify-between gap-2">
+    <h3 class="text-lg text-accent!">
+      {title}
+    </h3>
+
+    <div class="flex items-center gap-2 text-sm text-muted">
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${title} live website (opens in new tab)`}
+      >
+        <ExternalLinkIco class={iconClass} aria-hidden="true" />
+      </a>
+
+      <a
+        href={github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${title} source code on GitHub (opens in new tab)`}
+      >
+        <GitHubIco class={iconClass} aria-hidden="true" />
+      </a>
+    </div>
+  </header>
+
+  <p class="text-sm">
+    {description}
+  </p>
+  <ul
+    class="flex items-center gap-2 justify-end text-white"
+    aria-label={`Technologies used in ${title}`}
+  >
+    {
+      techs.map((tech) => {
+        const item = TECH_STACK.find(({ label }) => label === tech);
+        if (!item) return null;
+        const Icon = item.Icon;
+        return (
+          <li>
+            <Icon class={iconClass} aria-hidden="true" />
+            <span class="sr-only">{item.label}</span>
+          </li>
+        );
+      })
+    }
+  </ul>
+</article>

@@ -1,0 +1,42 @@
+---
+import { CircleIco, MapPinIco, ArrowRightIco } from "../icons/ui";
+import Button from "../ui/Button.astro";
+
+const rowClass = "flex items-center gap-2 text-sm";
+const iconClass = "size-[1em] mb-0.5 shrink-0";
+---
+
+<section
+  class="card w-full flex flex-col gap-3"
+  aria-labelledby="lets-talk-heading"
+>
+  <h2 id="lets-talk-heading" class="sr-only">Contact</h2>
+
+  <p class={rowClass} role="status">
+    <CircleIco
+      aria-hidden="true"
+      class={`${iconClass} fill-accent stroke-accent`}
+    />
+
+    <span
+      class="text-accent! animate-pulse [animation-duration:3s] leading-none"
+    >
+      AVAILABLE FOR WORK
+    </span>
+  </p>
+
+  <p class={rowClass}>
+    <MapPinIco
+      class={`${iconClass} stroke-accent fill-accent`}
+      circleClass="stroke-surface fill-surface"
+    />
+
+    <span class="leading-none">Mar del Plata, Argentina</span>
+  </p>
+
+  <Button aria-disabled="true" tabindex="-1" class="pointer-events-none opacity-80">
+    <span class="flex-1 text-center text-surface!">Let's Talk!</span>
+
+    <ArrowRightIco class="shrink-0 stroke-surface" aria-hidden="true" />
+  </Button>
+</section>

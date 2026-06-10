@@ -1,0 +1,35 @@
+---
+import { TECH_STACK, TECH_TOOLS } from "@/data/techList";
+---
+
+<section
+  class="card w-full flex flex-col gap-4"
+  aria-labelledby="techs-heading"
+>
+  <h2 id="techs-heading" class="text-lg">Tech stack</h2>
+
+  <h3 class="text-accent! text-center">Core Stack</h3>
+  <ul class="flex gap-5 justify-center items-center">
+    {
+      TECH_STACK.map(({ Icon, label }) => {
+        return (
+          <li class="shrink-0 size-8">
+            <Icon aria-hidden="true" />
+            <span class="sr-only">{label}</span>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <h3 class="text-accent! text-center">Tools</h3>
+  <ul class="flex flex-wrap justify-center gap-3 list-none">
+    {
+      TECH_TOOLS.map((item) => (
+        <li class="tech-tool-item hover:text-accent! ease-in-out transition-all duration-300">
+          {item}
+        </li>
+      ))
+    }
+  </ul>
+</section>

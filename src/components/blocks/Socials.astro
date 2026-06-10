@@ -1,0 +1,28 @@
+---
+import { SOCIAL_LINKS } from "@/data/socialList";
+---
+
+<nav aria-labelledby="socials-heading" class="card w-full flex flex-col gap-3">
+  <h2 id="socials-heading" class="text-lg">Let's Connect!</h2>
+  <ul class="flex gap-5 justify-center items-center">
+    {
+      SOCIAL_LINKS.map(({ Icon, link, label }) => {
+        return (
+          <li class="shrink-0 size-10 hover:-translate-y-1 group transition-all duration-300">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${label} (opens in new tab)`}
+            >
+              <Icon
+                class="group-hover:text-accent transition-all duration-300"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

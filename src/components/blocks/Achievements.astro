@@ -1,0 +1,26 @@
+---
+import { ACHIEVEMENTS_LIST } from "@/data/achievementsList";
+---
+
+<section class="w-full" aria-labelledby="achievements-heading">
+  <h2 id="achievements-heading" class="sr-only">Achievements</h2>
+  <ul class="flex flex-col gap-2">
+    {
+      ACHIEVEMENTS_LIST.map(({ title, description, Icon }, index) => (
+        <li class="flex items-center gap-6 card">
+          <div class="w-1/4 flex items-center gap-3">
+            <Icon
+              aria-hidden="true"
+              class={`size-8 shrink-0 ${index !== 2 ? "stroke-accent" : "fill-accent"}`}
+            />
+            <h3>
+              <span class="sr-only">{description}</span>
+              {title}
+            </h3>
+          </div>
+          <p>{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
