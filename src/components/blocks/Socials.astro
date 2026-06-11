@@ -1,9 +1,17 @@
 ---
 import { SOCIAL_LINKS } from "@/data/socialList";
+
 ---
 
-<nav aria-labelledby="socials-heading" class="card w-full flex flex-col gap-3">
-  <h2 id="socials-heading" class="text-lg">Let's Connect!</h2>
+<nav
+  aria-labelledby="socials-heading"
+  class="card w-full flex flex-col gap-3
+max-md:col-auto max-md:row-auto
+md:size-full md:col-start-1 md:row-start-17 row-span-2 justify-center
+xl:col-start-1 xl:row-start-11 xl:row-span-3
+"
+>
+  <h2 id="socials-heading" class="hidden xl:block">Let's Connect!</h2>
   <ul class="flex gap-5 justify-center items-center">
     {
       SOCIAL_LINKS.map(({ Icon, link, label }) => {

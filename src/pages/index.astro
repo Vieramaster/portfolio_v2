@@ -5,22 +5,26 @@ import {
   LetsTalk,
   Projects,
   AboutMe,
-  Techs,
+  TechsStack,
   Socials,
   Achievements,
 } from "@/components/blocks";
 ---
 
 <BaseLayout>
-  <main class="w-80 mx-auto py-5 grid grid-cols-1 gap-5 place-items-center">
-    <h1 class="sr-only">Martin Viera — Front-End Developer Portfolio</h1>
+  <main
+    class="w-80 mx-auto py-6 min-h-dvh grid grid-cols-1 gap-4 place-items-center place-content-center
+          max-md:w-full max-md:max-w-80 max-md:px-4 max-md:min-h-0 max-md:place-items-stretch max-md:place-content-start max-md:gap-5
+          md:w-180 md:grid-cols-2 md:grid-rows-[repeat(20,2rem)]
+          xl:w-6xl xl:grid-cols-3 xl:grid-rows-[repeat(12,2rem)] xl:gap-6"
+  >
     <SoftGridHero />
     <LetsTalk />
-    <Projects />
     <AboutMe />
-    <Techs />
-    <Achievements />
+    <Projects />
+    <TechsStack />
     <Socials />
+    <Achievements />
   </main>
 </BaseLayout>
 

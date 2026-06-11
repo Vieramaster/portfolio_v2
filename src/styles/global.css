@@ -48,8 +48,9 @@
 
   /* Accent */
   --color-accent: var(--color-power);
-  --color-accent-hover: var(--color-power-light);
-  --color-accent-active: var(--color-power-dark);
+  --color-accent-hover: var(--color-power);
+  --color-accent-active: var(--color-power-light);
+  --color-accent-dark: var(--color-power-dark);
 
   /* Buttons */
   --color-button: var(--color-power);
@@ -69,6 +70,10 @@
   --color-success: var(--color-green);
   --color-warning: var(--color-orange);
   --color-danger: var(--color-red);
+
+  /* Breakpoints */
+  --breakpoint-3xl: 120rem;
+
 }
 
 h1,
@@ -89,9 +94,6 @@ li {
   color: var(--color-primary);
 }
 
-body {
-  background-color: var(--color-background);
-}
 
 .card {
   @apply bg-surface p-3 w-full rounded-md;

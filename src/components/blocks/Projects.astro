@@ -2,14 +2,19 @@
 import { PROJECTS_LIST } from "@/data/projectsList";
 import ProjectCard from "../cards/ProjectCard.astro";
 import { ChevronArrowIco } from "../icons/ui";
-
+import Title from "../ui/Title.astro";
 const controlBtnClass =
   "h-7 text-accent cursor-pointer enabled:hover:[&_svg]:scale-110 disabled:cursor-not-allowed disabled:text-muted disabled:[&_svg]:stroke-muted transition-colors duration-200 ease-in-out";
 ---
 
-<section class="card h-120 w-full" aria-labelledby="projects-heading">
+<section class="card h-130 w-full flex flex-col justify-center
+md:size-full md:col-start-2 md:row-start-9 md:row-span-10
+xl:col-start-3 xl:row-start-6
+
+" aria-labelledby="projects-heading">
   <div class="flex items-center justify-between gap-2 mb-3">
-    <h2 id="projects-heading" class="text-lg">Projects</h2>
+
+    <Title title="Projects" id="projects-heading" />
     <p
       data-slider-status
       class="text-sm text-muted tabular-nums"
@@ -29,7 +34,7 @@ const controlBtnClass =
   >
     <div
       data-slider-track
-      class="flex transition-transform duration-300 ease-in-out"
+      class="flex gap-3 transition-transform duration-300 ease-in-out"
     >
       {
         PROJECTS_LIST.map((project, index) => (

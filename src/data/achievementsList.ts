@@ -4,7 +4,7 @@ import type { AchievementItem } from "@/types";
 
 export const ACHIEVEMENTS_LIST = [
   {
-    title: "2.5+",
+    title: "2+",
     description: "years of learning",
     Icon: ClockIco,
   },

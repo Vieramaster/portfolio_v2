@@ -51,9 +51,14 @@ export const projectsSlider = () => {
       });
     };
 
+    const getStep = () => {
+      const { columnGap, gap } = getComputedStyle(track);
+      const gapPx = parseFloat(columnGap || gap) || 0;
+      return slider.clientWidth + gapPx;
+    };
+
     const updatePosition = () => {
-      const step = slider.clientWidth;
-      track.style.transform = `translateX(-${currentIndex * step}px)`;
+      track.style.transform = `translateX(-${currentIndex * getStep()}px)`;
     };
 
     const updateButtons = () => {

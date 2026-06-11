@@ -1,14 +1,21 @@
 ---
 import "@/styles/global.css";
+import { SOFT_GRID_DEFAULTS } from "@/data/softGridDefaults";
+import type { SoftGridConfig } from "@/types";
 
-interface Props {
+interface Props extends Partial<SoftGridConfig> {
   title?: string;
   description?: string;
+  softGridId?: string;
 }
 
 const {
   title = "Martin Viera | Front-End Developer",
   description = "Front-End Developer portfolio showcasing projects built with React, Next.js, Astro, TypeScript, and Tailwind CSS.",
+  softGridId = crypto.randomUUID(),
+  grid = SOFT_GRID_DEFAULTS.grid,
+  speedX = SOFT_GRID_DEFAULTS.speedX,
+  speedY = SOFT_GRID_DEFAULTS.speedY,
 } = Astro.props;
 
 const jsonLd = {
@@ -44,7 +51,17 @@ const jsonLd = {
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="bg-background">
+  <body
+    class="relative isolate min-h-dvh bg-background"
+    data-soft-grid={softGridId}
+    data-grid={grid}
+    data-speed-x={speedX}
+    data-speed-y={speedY}
+  >
+    <canvas
+      class="absolute inset-0 -z-10 w-full h-full block pointer-events-none"
+      aria-hidden="true"
+    ></canvas>
     <slot />
   </body>
 </html>

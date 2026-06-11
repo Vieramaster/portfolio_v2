@@ -1,3 +1,8 @@
+const backgroundColor = "#111011";
+const strokeColor = "rgba(34, 32, 34, 0.3)";
+
+const polygonScale = 2;
+
 const INSTANCES = new Map();
 
 export const softGridAnimation = () => {
@@ -17,37 +22,97 @@ export const softGridAnimation = () => {
   });
 };
 
-const drawGrid = (ctx, w, h, grid, offsetX, offsetY) => {
-  ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = "#222022";
-  ctx.fillRect(0, 0, w, h);
-  ctx.strokeStyle = "rgba(219, 232, 75, 0.1)";
-  ctx.lineWidth = 1;
+const drawGrid = (
+  ctx,
+  w,
+  h,
+  grid,
+  offsetX,
+  offsetY,
+) => {
+  const hexRadius = (grid / 2) * polygonScale;
 
-  const shiftX = offsetX % grid;
-  const shiftY = offsetY % grid;
-  const cols = Math.ceil(w / grid) + 2;
-  const rows = Math.ceil(h / grid) + 2;
+  const horizontalSpacing = Math.sqrt(3) * hexRadius;
+  const verticalSpacing = hexRadius * 1.5;
+
+  const cols = Math.ceil(w / horizontalSpacing) + 4;
+  const rows = Math.ceil(h / verticalSpacing) + 4;
+
+  const DEG_TO_RAD = Math.PI / 180;
+  const ANGLE_OFFSET = -30;
+
+  const localOffsetX =
+    offsetX -
+    Math.floor(offsetX / horizontalSpacing) *
+      horizontalSpacing;
+
+  const localOffsetY =
+    offsetY -
+    Math.floor(offsetY / verticalSpacing) *
+      verticalSpacing;
+
+  ctx.clearRect(0, 0, w, h);
+
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0, 0, w, h);
 
   ctx.beginPath();
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = 1;
 
-  for (let i = -1; i < cols; i++) {
-    const x = i * grid + shiftX;
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, h);
-  }
+  for (let row = -2; row < rows; row++) {
+    const rowOffset =
+      (
+        row +
+        Math.floor(offsetY / verticalSpacing)
+      ) & 1
+        ? horizontalSpacing / 2
+        : 0;
 
-  for (let j = -1; j < rows; j++) {
-    const y = j * grid + shiftY;
-    ctx.moveTo(0, y);
-    ctx.lineTo(w, y);
+    for (let col = -2; col < cols; col++) {
+      const centerX =
+        col * horizontalSpacing +
+        rowOffset -
+        localOffsetX;
+
+      const centerY =
+        row * verticalSpacing -
+        localOffsetY;
+
+      for (let side = 0; side < 6; side++) {
+        const angle =
+          (side * 60 + ANGLE_OFFSET) *
+          DEG_TO_RAD;
+
+        const x =
+          centerX +
+          hexRadius * Math.cos(angle);
+
+        const y =
+          centerY +
+          hexRadius * Math.sin(angle);
+
+        if (side === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+
+      ctx.closePath();
+    }
   }
 
   ctx.stroke();
 };
 
-const createGridAnimation = (container, config) => {
-  const canvas = container.querySelector("canvas");
+const createGridAnimation = (
+  container,
+  config,
+) => {
+  const canvas =
+    container.querySelector("canvas");
+
   const ctx = canvas.getContext("2d", {
     alpha: false,
     desynchronized: true,
@@ -62,21 +127,43 @@ const createGridAnimation = (container, config) => {
 
   const resize = () => {
     dpr = window.devicePixelRatio || 1;
+
     w = container.clientWidth;
     h = container.clientHeight;
+
     canvas.width = w * dpr;
     canvas.height = h * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    ctx.setTransform(
+      dpr,
+      0,
+      0,
+      dpr,
+      0,
+      0,
+    );
   };
 
   const draw = () => {
-    drawGrid(ctx, w, h, config.grid, offsetX, offsetY);
+    drawGrid(
+      ctx,
+      w,
+      h,
+      config.grid,
+      offsetX,
+      offsetY,
+    );
+
     offsetX += config.speedX;
     offsetY += config.speedY;
+
     raf = requestAnimationFrame(draw);
   };
 
-  new ResizeObserver(resize).observe(container);
+  new ResizeObserver(resize).observe(
+    container,
+  );
+
   resize();
   raf = requestAnimationFrame(draw);
 
