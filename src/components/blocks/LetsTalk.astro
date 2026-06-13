@@ -9,12 +9,11 @@ const iconClass = "size-[1em] shrink-0";
 ---
 
 <section
-  class="card w-full flex flex-col gap-3 justify-center
+  class="card w-full flex flex-col gap-4 justify-center
 max-md:col-auto max-md:row-auto
 col-start-1 md:row-start-8 md:row-span-3 md:size-full
-xl:row-start-8 xl:gap-4 3xl:row-span-4
-3xl:gap-5
-"
+xl:row-start-8 xl:row-span-4 3xl:row-span-4
+3xl:gap-5"
   aria-labelledby="lets-talk-heading"
 >
   <h2 id="lets-talk-heading" class="sr-only">Contact</h2>
@@ -40,7 +39,7 @@ xl:row-start-8 xl:gap-4 3xl:row-span-4
 
     <span class="leading-none xl:text-base">Mar del Plata, Argentina</span>
   </div>
-  <div class={`${rowClass} hidden xl:flex ` }>
+  <div class={`${rowClass} hidden xl:flex `}>
     <MonitorCloud class={`${iconClass} stroke-accent `} />
 
     <span class="leading-none xl:text-base">Open to in-person or remote</span>
@@ -49,13 +48,13 @@ xl:row-start-8 xl:gap-4 3xl:row-span-4
   <Button
     aria-disabled="true"
     tabindex="-1"
-    class="3xl:h-14 text-center items-center"
+    class="xl:h-12 3xl:h-14 text-center items-center"
   >
-    <span class="flex-1 text-surface! xl:text-lg 3xl:text-2xl">Let's Talk!</span
+    <span class="flex-1 text-surface! xl:text-xl 3xl:text-2xl">Let's Talk!</span
     >
 
     <ArrowRightIco
-      class="shrink-0 stroke-surface 3xl:size-8"
+      class="shrink-0 stroke-surface xl:size-7 3xl:size-8"
       aria-hidden="true"
     />
   </Button>

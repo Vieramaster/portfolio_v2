@@ -1,7 +1,7 @@
-import { projectsSlider } from "./projectsSlider";
-import { softGridAnimation } from "./softGridAnimation";
+import { projectsSlider } from "./slider/manager";
+import { bodyGridAnimation } from "./background-animation/bodyGridAnimation";
 
 export const initClient = () => {
     projectsSlider();
-    softGridAnimation();
+    bodyGridAnimation();
 };
