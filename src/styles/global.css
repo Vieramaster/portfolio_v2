@@ -7,13 +7,7 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Elianto";
-  src: url("/fonts/elianto.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+
 @font-face {
   font-family: "Firacode";
   src: url("/fonts/firacode.woff2") format("woff2");
@@ -22,6 +16,8 @@
 }
 
 @theme {
+  --breakpoint-3xl: 112.5rem; 
+
   --color-power: #c3d809;
   --color-power-light: #dbe84b;
   --color-power-dark: #a0b207;
@@ -35,8 +31,7 @@
   --color-gray-400: #9b9b9b;
   --color-border-gray: #333133;
 
-
-  /* surfaces */
+  /* Surfaces */
   --color-background: var(--color-modern-gray-dark);
   --color-surface: var(--color-modern-gray);
   --color-surface-hover: var(--color-modern-gray-light);
@@ -71,47 +66,68 @@
   --color-warning: var(--color-orange);
   --color-danger: var(--color-red);
 
-  /* Breakpoints */
-  --breakpoint-3xl: 120rem;
 
+
+  /* Fonts */
+  --font-firacode: "Firacode", monospace;
+  --font-axope: "Axope", sans-serif;
 }
 
-h1,
-h2 {
-  font-family: "Axope", sans-serif;
-  color: var(--color-accent);
-  letter-spacing: 2px;
-}
+/* Typography */
 
 p,
-h3,
-h4,
-h5,
-h6,
 span,
 li {
-  font-family: "Firacode", sans-serif;
-  color: var(--color-primary);
+  @apply font-firacode text-white;
+}
+
+.h1-title,
+.h2-title {
+  @apply font-axope tracking-[2.5px] text-accent;
+}
+
+.h1-title {
+  @apply text-3xl xl:text-4xl;
 }
 
 
-.card {
-  @apply bg-surface p-3 w-full rounded-md;
+/* Borders */
+
+.gray-bordered,
+.accent-dark-bordered {
+  @apply border rounded-sm;
+}
+
+.gray-bordered {
+  @apply border-border p-2;
+}
+
+.accent-dark-bordered {
+  @apply border-accent-dark/30 px-2 py-1 ;
+}
+
+/* Shadows */
+
+.card,
+.shadow-box {
   box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.75);
 }
 
+/* Components */
 
+.card {
+  @apply w-full rounded-md bg-surface p-5;
+}
 
-/** Tailwind custom classes */
+/* Tailwind custom classes */
 
-/** so that screen readers do not read “bullet”. */
 .tech-tool-item::before {
   content: "•";
   margin-right: 0.05rem;
   color: var(--color-white);
 }
 
-[data-slider]:not(.js-initialized) [data-slider-track] > article[hidden] {
+[data-slider]:not(.js-initialized) [data-slider-track] > [data-slider-slide][hidden] {
   display: none;
 }
 
@@ -121,4 +137,3 @@ button:focus-visible,
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
-

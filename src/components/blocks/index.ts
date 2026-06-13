@@ -1,6 +1,6 @@
 export { default as AboutMe } from "./AboutMe.astro"
 export { default as LetsTalk } from "./LetsTalk.astro"
-export { default as SoftGridHero } from "./SoftGridHero.astro"
+export { default as Hero } from "./Hero.astro"
 export { default as Projects } from "./Projects.astro"
 export { default as Socials } from "./Socials.astro"
 export { default as TechsStack } from "./TechsStack.astro"

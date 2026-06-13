@@ -12,7 +12,7 @@ export const PROJECTS_LIST = [
         github: "https://github.com/Vieramaster/Optiguide",
         url: "https://optiguide.vercel.app/",
         techs: ["Next.js", "Tailwind", "TypeScript"],
-        description: "Is a web application designed to help new employees adapt to the optical industry. It combines educational resources with practical tools, allowing users to learn essential concepts while using interactive apps that support daily tasks and improve the sales process.",
+        description: "OptiGuide is an educational platform designed to help new optical store employees learn essential concepts and adapt faster through interactive tools, lens simulations, face-shapes and a smart ophthalmic lens catalog.",
     },
     {
         title: "Outfitland",
@@ -26,7 +26,7 @@ export const PROJECTS_LIST = [
         url: "https://outfitland.vercel.app",
         techs: ["React", "Tailwind", "TypeScript"],
         description:
-            "This application was created to help new clothing store employees learn how to combine men's outfits. It offers random outfit suggestions based on the selected garment while considering style and weather conditions, along with a simple weather tool to support everyday clothing choices.",
+            "Outfit generator designed to help new clothing store employees learn how to combine men's apparel with confidence. Generates random outfit suggestions based on style and weather, complemented by a simple built-in weather tool.",
     },
     {
         title: "Fantaspic",
@@ -40,6 +40,6 @@ export const PROJECTS_LIST = [
         url: "https://fantaspic.vercel.app/",
         techs: ["React", "Tailwind", "TypeScript"],
         description:
-            "This project is a Pinterest-style image search application built to learn how to work with external APIs and modern front-end technologies. It integrates the Unsplash API, features an image search engine, and includes a “Latest Topics” section that displays trending searches.",
+            "Pinterest-style image search application built to explore the Unsplash API and strengthen my experience with modern web technologies. Features an image search engine, a Latest Topics section with trending searches, and a clean, intuitive interface",
     },
 ] as const satisfies readonly Project[];

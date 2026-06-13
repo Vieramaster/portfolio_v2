@@ -4,6 +4,8 @@ export interface TechStackItem extends WithIcon {
     label: string;
 }
 
+export type TechTool = string;
+
 export interface AchievementItem extends WithIcon {
     title: string;
     description: string;

@@ -1,5 +1,5 @@
 const backgroundColor = "#111011";
-const strokeColor = "rgba(34, 32, 34, 0.3)";
+const strokeColor = "rgba(34, 32, 34, 0.7)";
 
 const polygonScale = 2;
 
