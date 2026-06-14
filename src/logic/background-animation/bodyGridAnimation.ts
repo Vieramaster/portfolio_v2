@@ -1,4 +1,4 @@
-import { drawGrid } from "./gridRendered";
+import { drawGrid, refreshGridTheme } from "./gridRendered";
 
 interface GridConfig {
   grid: number;
@@ -56,6 +56,7 @@ const createGridAnimation = (container: HTMLElement, config: GridConfig) => {
     canvas.height = h * dpr;
 
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    refreshGridTheme();
   };
 
   const draw = () => {

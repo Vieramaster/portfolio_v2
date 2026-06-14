@@ -7,6 +7,8 @@ import { ChevronArrowIco } from "../icons/ui";
 
 const controlBtnClass =
   "h-7 text-accent cursor-pointer enabled:hover:[&_svg]:scale-110 disabled:cursor-not-allowed disabled:text-muted disabled:[&_svg]:stroke-muted transition-colors duration-200 ease-in-out";
+
+const titleClass = "text-2xl md:text-3xl font-semibold text-accent!";
 ---
 
 <section
@@ -17,9 +19,9 @@ const controlBtnClass =
   aria-labelledby="projects-heading"
 >
   <div class="flex items-center text-start justify-between gap-2 mb-3">
-    <h2 id="projects-heading" class="flex gap-3 h2-title text-2xl md:text-3xl ">
-      <span class="h2-title hidden 3xl:block">Featured</span> Projects
-    </h2>
+    <h3 id="projects-heading" class={`${titleClass} flex gap-3`}>
+      <span class={`${titleClass} hidden 3xl:block`}>Featured</span> Projects
+    </h3>
 
     <p
       data-slider-status

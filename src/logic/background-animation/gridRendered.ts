@@ -5,12 +5,26 @@ import {
 } from "./gridGeometry";
 import { getCSSVariable } from "./getCSSVariable";
 
-// Constantes estéticas extraídas de la lógica
-export const THEME = {
-  backgroundColor: getCSSVariable("--background-color", "#111011"),
-  strokeColor: getCSSVariable("--stroke-color", "rgba(34, 32, 34, 0.7)"),
-  lineWidth: 1,
-} as const;
+interface GridTheme {
+  backgroundColor: string;
+  strokeColor: string;
+  lineWidth: number;
+}
+
+let themeCache: GridTheme | null = null;
+
+export const refreshGridTheme = (): void => {
+  themeCache = {
+    backgroundColor: getCSSVariable("--color-background", "#111011"),
+    strokeColor: getCSSVariable("--color-grid-stroke", "#aaa"),
+    lineWidth: 1,
+  };
+};
+
+const getGridTheme = (): GridTheme => {
+  if (!themeCache) refreshGridTheme();
+  return themeCache!;
+};
 
 export const drawGrid = (
   ctx: CanvasRenderingContext2D,
@@ -20,6 +34,7 @@ export const drawGrid = (
   offsetX: number,
   offsetY: number,
 ): void => {
+  const theme = getGridTheme();
   const { hexRadius, horizontalSpacing, verticalSpacing, cols, rows } =
     calculateGridDimensions(w, h, grid);
   const { localOffsetX, localOffsetY } = calculateLocalOffsets(
@@ -29,15 +44,13 @@ export const drawGrid = (
     verticalSpacing,
   );
 
-  // Limpieza y fondo
   ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = THEME.backgroundColor;
+  ctx.fillStyle = theme.backgroundColor;
   ctx.fillRect(0, 0, w, h);
 
-  // Configuración de trazo único (Clave para performance)
   ctx.beginPath();
-  ctx.strokeStyle = THEME.strokeColor;
-  ctx.lineWidth = THEME.lineWidth;
+  ctx.strokeStyle = theme.strokeColor;
+  ctx.lineWidth = theme.lineWidth;
 
   for (let row = -2; row < rows; row++) {
     const isOddRow = ((row + Math.floor(offsetY / verticalSpacing)) & 1) !== 0;

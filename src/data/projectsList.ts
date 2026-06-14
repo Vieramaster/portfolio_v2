@@ -1,4 +1,4 @@
-import type { Project } from "@/types";
+import type { Project } from "@/types/project";
 
 export const PROJECTS_LIST = [
     {
@@ -12,7 +12,7 @@ export const PROJECTS_LIST = [
         github: "https://github.com/Vieramaster/Optiguide",
         url: "https://optiguide.vercel.app/",
         techs: ["Next.js", "Tailwind", "TypeScript"],
-        description: "OptiGuide is an educational platform designed to help new optical store employees learn essential concepts and adapt faster through interactive tools, lens simulations, face-shapes and a smart ophthalmic lens catalog.",
+        description: "Educational platform for optical stores with interactive tools, lens simulations, face shape analysis, and a smart ophthalmic catalog.",
     },
     {
         title: "Outfitland",
@@ -26,7 +26,7 @@ export const PROJECTS_LIST = [
         url: "https://outfitland.vercel.app",
         techs: ["React", "Tailwind", "TypeScript"],
         description:
-            "Outfit generator designed to help new clothing store employees learn how to combine men's apparel with confidence. Generates random outfit suggestions based on style and weather, complemented by a simple built-in weather tool.",
+            "Men's outfit generator with weather-based suggestions, color matching, practical styling tools, and an intuitive clothing recommendation system.",
     },
     {
         title: "Fantaspic",
@@ -40,6 +40,6 @@ export const PROJECTS_LIST = [
         url: "https://fantaspic.vercel.app/",
         techs: ["React", "Tailwind", "TypeScript"],
         description:
-            "Pinterest-style image search application built to explore the Unsplash API and strengthen my experience with modern web technologies. Features an image search engine, a Latest Topics section with trending searches, and a clean, intuitive interface",
+            "Image search application powered by the Unsplash API, designed to explore trending topics and provide a fast, intuitive browsing experience.",
     },
 ] as const satisfies readonly Project[];
