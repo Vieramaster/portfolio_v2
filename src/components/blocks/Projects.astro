@@ -5,32 +5,34 @@ import ProjectCard from "../cards/ProjectCard.astro";
 
 import { ChevronArrowIco } from "../icons/ui";
 
-const controlBtnClass =
-  "h-7 text-accent cursor-pointer enabled:hover:[&_svg]:scale-110 disabled:cursor-not-allowed disabled:text-muted disabled:[&_svg]:stroke-muted transition-colors duration-200 ease-in-out";
+const sliderControlClass =
+  "touch-target h-7 text-accent cursor-pointer enabled:hover:[&_svg]:scale-110 disabled:cursor-not-allowed disabled:text-muted disabled:[&_svg]:stroke-muted transition-colors duration-200 ease-in-out";
 
-const titleClass = "text-2xl md:text-3xl font-semibold text-accent!";
+const sectionTitleClass = "text-2xl md:text-3xl subTitle";
 ---
 
 <section
   class="card w-full flex flex-col
-        md:size-full md:col-start-2 md:row-start-10 md:row-span-12
-        xl:col-start-3 xl:row-start-6 xl:row-span-10
-        3xl:col-end-6 3xl:row-start-6"
+        md:size-full md:col-start-2 md:row-start-12 md:row-span-10
+        xl:col-start-3 xl:row-start-7 xl:row-span-9
+        3xl:col-end-6 3xl:row-start-6 3xl:row-span-10"
   aria-labelledby="projects-heading"
 >
-  <div class="flex items-center text-start justify-between gap-2 mb-3">
-    <h3 id="projects-heading" class={`${titleClass} flex gap-3`}>
-      <span class={`${titleClass} hidden 3xl:block`}>Featured</span> Projects
-    </h3>
+  <header class="flex items-center text-start justify-between gap-2 mb-3">
+    <h2 id="projects-heading" class={`${sectionTitleClass} flex gap-3`}>
+      <span class={`${sectionTitleClass} hidden 3xl:block`}>Featured</span> Projects
+    </h2>
 
     <p
       data-slider-status
       class="text-md text-muted tabular-nums mt-1 3xl:hidden"
-      aria-hidden="true"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label={`Project 1 of ${PROJECTS_LIST.length}`}
     >
       1 / {PROJECTS_LIST.length}
     </p>
-  </div>
+  </header>
 
   <div
     data-slider
@@ -52,14 +54,16 @@ const titleClass = "text-2xl md:text-3xl font-semibold text-accent!";
       }
     </ul>
 
-    <div
+    <nav
+      aria-label="Project slides"
       class="absolute top-1/6 w-full flex items-center justify-between gap-2 3xl:hidden"
     >
       <button
         type="button"
         data-slider-prev
         aria-label="Previous project"
-        class={controlBtnClass}
+        title="Previous project"
+        class={sliderControlClass}
         disabled
       >
         <ChevronArrowIco class="rotate-180" aria-hidden="true" />
@@ -69,10 +73,11 @@ const titleClass = "text-2xl md:text-3xl font-semibold text-accent!";
         type="button"
         data-slider-next
         aria-label="Next project"
-        class={controlBtnClass}
+        title="Next project"
+        class={sliderControlClass}
       >
         <ChevronArrowIco aria-hidden="true" />
       </button>
-    </div>
+    </nav>
   </div>
 </section>

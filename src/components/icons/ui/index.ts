@@ -1,8 +1,12 @@
-export { default as CircleIco } from "./CircleIco.astro"
-export { default as ArrowRightIco } from "./ArrowRightIco.astro"
-export { default as MapPinIco } from "./MapPinIco.astro"
-export { default as ChevronArrowIco } from "./ChevronArrowIco.astro"
-export { default as ExternalLinkIco } from "./ExternalLinkIco.astro"
-export { default as ClockIco } from "./ClockIco.astro"
-export { default as WorkIco } from "./WorkIco.astro"    
-export {default as MonitorCloud} from "./MonitorCloud.astro"
+export { default as CircleIco } from "./CircleIco.astro";
+export { default as ArrowRightIco } from "./ArrowRightIco.astro";
+export { default as MapPinIco } from "./MapPinIco.astro";
+export { default as ChevronArrowIco } from "./ChevronArrowIco.astro";
+export { default as ExternalLinkIco } from "./ExternalLinkIco.astro";
+export { default as ClockIco } from "./ClockIco.astro";
+export { default as WorkIco } from "./WorkIco.astro";
+export { default as MonitorCloudIco } from "./MonitorCloudIco.astro";
+export { default as LaboratoryTubeIco } from "./LaboratoryTubeIco.astro";
+export { default as RefreshIco } from "./RefreshIco.astro";
+export { default as LightBulbIco } from "./LightBulbIco.astro";
+export { default as CurriculumIco } from "./CurriculumIco.astro";

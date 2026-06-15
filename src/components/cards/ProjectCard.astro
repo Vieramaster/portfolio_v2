@@ -1,7 +1,7 @@
 ---
 import { ExternalLinkIco } from "../icons/ui";
 import { GitHubIco } from "../icons/social";
-import { TECH_STACK } from "@/data/techList";
+import { TECH_STACK } from "@/data/techStackList";
 import type { Project } from "@/types/project";
 
 interface Props extends Project {
@@ -11,43 +11,48 @@ interface Props extends Project {
 const { title, description, images, imageAlt, url, github, techs, baseIndex } =
   Astro.props;
 
-const iconClass = "size-5 md:size-6 hover:text-accent ease-in-out duration-200";
+const linkIconClass = "size-5 md:size-6 hover:text-accent ease-in-out duration-200";
 const altText = imageAlt ?? `Screenshot of ${title} — ${description}`;
 ---
 
-<article
+<li
   data-slider-slide
-  class="overflow-x-hidden flex flex-col gap-3 min-w-full h-full relative 3xl:w-1/3 3xl:min-w-auto 3xl:border 3xl:rounded-md 3xl:border-border "
+  class="overflow-x-hidden flex flex-col gap-3 min-w-full h-full relative 3xl:w-1/3 3xl:min-w-auto 3xl:border 3xl:rounded-md 3xl:border-border"
   hidden={baseIndex > 0}
   inert={baseIndex > 0 ? true : undefined}
   aria-hidden={baseIndex > 0 ? "true" : undefined}
 >
-  <picture>
-    <source
-      media="(max-width: 767px)"
-      srcset={images.mobile}
-      type="image/webp"
-    />
-    <img
-      src={images.desktop}
-      alt={altText}
-      class="h-36 w-full rounded-md object-cover xl:h-46 3xl:h-50 3xl:hover:scale-105 3xl:ease-in-out 3xl:duration-300"
-    />
-  </picture>
+  <figure class="block h-48 overflow-hidden rounded-md  3xl:h-50 m-0">
+    <picture class="group block h-full w-full overflow-hidden">
+      <source
+        media="(max-width: 767px)"
+        srcset={images.mobile}
+        type="image/webp"
+      />
+
+      <img
+        src={images.desktop}
+        alt={altText}
+        class="block h-full w-full object-cover transition-transform duration-300 ease-in-out will-change-transform group-hover:scale-105"
+      />
+    </picture>
+  </figure>
 
   <header class="flex items-center justify-between gap-2 3xl:px-4">
-    <h3 class="text-xl md:text-2xl text-accent">
+    <h3 class="text-xl md:text-2xl text-accent m-0">
       {title}
     </h3>
 
-    <div class="flex items-center gap-2 text-sm text-muted ">
+    <nav aria-label={`${title} links`} class="flex items-center gap-2 text-sm text-muted">
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${title} live website (opens in new tab)`}
+        title={`${title} live website (opens in new tab)`}
+        class="rounded-sm transition-colors hover:text-accent"
       >
-        <ExternalLinkIco class={`${iconClass} mt-1`} aria-hidden="true" />
+        <ExternalLinkIco class={`${linkIconClass} mt-1`} aria-hidden="true" />
       </a>
 
       <a
@@ -55,13 +60,17 @@ const altText = imageAlt ?? `Screenshot of ${title} — ${description}`;
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${title} source code on GitHub (opens in new tab)`}
+        title={`${title} source code on GitHub (opens in new tab)`}
+        class="rounded-sm transition-colors hover:text-accent"
       >
-        <GitHubIco class={`${iconClass} mt-1`} aria-hidden="true" />
+        <GitHubIco class={`${linkIconClass} mt-1`} aria-hidden="true" />
       </a>
-    </div>
+    </nav>
   </header>
 
-  <p class="text-sm text-[0.95rem] xl:text-[0.92rem] 3xl:text-[0.95rem] 3xl:px-4">
+  <p
+    class="text-sm text-[0.95rem] xl:text-[0.92rem] 3xl:text-[0.95rem] 3xl:px-4"
+  >
     {description}
   </p>
   <ul
@@ -74,12 +83,12 @@ const altText = imageAlt ?? `Screenshot of ${title} — ${description}`;
         if (!item) return null;
         const Icon = item.Icon;
         return (
-          <li>
-            <Icon class={iconClass} aria-hidden="true" />
+          <li title={item.label}>
+            <Icon class={linkIconClass} aria-hidden="true" />
             <span class="sr-only">{item.label}</span>
           </li>
         );
       })
     }
   </ul>
-</article>
+</li>

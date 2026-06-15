@@ -9,6 +9,7 @@ import {
   updateLabelsAndStatus,
   updateButtonStates,
 } from "./sliderDom";
+import { bindTouchSwipe } from "./sliderTouch";
 
 const INSTANCES = new Map<HTMLElement, { destroy: () => void }>();
 
@@ -117,6 +118,12 @@ const createSliderInstance = (slider: HTMLElement) => {
   slider.addEventListener("keydown", handleKeydown);
   gridMedia.addEventListener("change", handleGridChange);
 
+  const unbindTouchSwipe = bindTouchSwipe(
+    slider,
+    { onSwipeLeft: handleNext, onSwipeRight: handlePrev },
+    () => !isGridView(),
+  );
+
   // Buenas prácticas 2026: Guardar referencia del observador para desconectarlo
   const resizeObserver = new ResizeObserver(() => {
     const { columnGap, gap } = getComputedStyle(track);
@@ -137,6 +144,7 @@ const createSliderInstance = (slider: HTMLElement) => {
       nextBtn.removeEventListener("click", handleNext);
       slider.removeEventListener("keydown", handleKeydown);
       gridMedia.removeEventListener("change", handleGridChange);
+      unbindTouchSwipe();
       resizeObserver.disconnect(); // Previene memory leaks
       slider.classList.remove("js-initialized");
     },

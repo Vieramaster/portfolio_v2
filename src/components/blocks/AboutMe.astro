@@ -1,19 +1,29 @@
+---
+import { ABOUT_ME_ITEMS } from "@/data/aboutMeList";
+
+const itemIconClass = "size-6 stroke-accent";
+---
+
 <section
-  class="card flex flex-col gap-3 justify-center
-        max-md:col-auto max-md:row-auto
-        md:size-full md:col-start-2 row-span-9
-        xl:col-start-2 xl:col-end-4 xl:row-span-5
-        3xl:col-end-6 3xl:row-span-5 3xl:text-lg 3xl:row-start-1"
+  class="card flex flex-col justify-center gap-4
+    max-md:col-auto max-md:row-auto
+    md:size-full md:col-start-2 md:row-span-11
+    xl:col-start-2 xl:col-end-4 xl:row-span-6
+    3xl:col-start-2 3xl:col-end-6 3xl:row-start-1 3xl:row-span-5 3xl:text-lg"
   aria-labelledby="about-me-heading"
 >
-  <h2 id="about-me-heading" class="h2-title text-3xl md:text-4xl">About Me</h2>
+  <h2 id="about-me-heading" class="title text-3xl md:text-4xl">About Me</h2>
 
-  <p>
-    I'm a Front-End Developer passionate about creating modern, user-focused web
-    applications. Over the past few years, I've built projects with React,
-    Astro, TypeScript, and Tailwind CSS, with a strong focus on maintainability,
-    performance, and user experience. I'm looking to join a team where I can
-    contribute to meaningful products and continue improving my technical
-    skills.
-  </p>
+  <ul class="flex flex-col gap-3 list-none m-0 p-0">
+    {
+      ABOUT_ME_ITEMS.map(({ Icon, description }) => (
+        <li class="flex items-center gap-4">
+          <span class="shrink-0" aria-hidden="true">
+            <Icon class={itemIconClass} />
+          </span>
+          <p class="m-0">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
 </section>

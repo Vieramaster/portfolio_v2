@@ -1,11 +1,11 @@
 ---
-import { SOCIAL_LINKS } from "@/data/socialList";
+import { SOCIAL_LINKS } from "@/data/socialLinksList";
 ---
 
 <nav
   aria-labelledby="socials-heading"
   class="card w-full flex flex-col gap-3
-max-md:col-auto max-md:row-auto
+max-md:col-auto 
 md:size-full md:col-start-1 md:row-start-20 row-span-2 justify-center
 xl:col-start-1 xl:row-start-12 xl:row-span-2 
 3xl:row-span-2 3xl:row-start-12"
@@ -22,6 +22,8 @@ xl:col-start-1 xl:row-start-12 xl:row-span-2
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${label} (opens in new tab)`}
+              title={label}
+              class="touch-target rounded-sm transition-colors group-hover:text-accent"
             >
               <Icon
                 class="group-hover:text-accent transition-all duration-300"

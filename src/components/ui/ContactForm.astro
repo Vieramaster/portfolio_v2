@@ -1,0 +1,72 @@
+<dialog
+  id="contact-modal"
+  aria-labelledby="contact-modal-title"
+  class="m-auto w-full max-w-md border-0 bg-transparent p-0"
+>
+  <form
+    action="https://formspree.io/f/xeorqyyj"
+    method="POST"
+    target="_blank"
+    onsubmit="this.closest('dialog')?.close()"
+    class="bg-modern-gray-medium p-4 flex flex-col gap-4 rounded-md font-firacode text-white"
+  >
+    <h3 id="contact-modal-title" class="subTitle m-0 text-2xl">
+      Send me a message!
+    </h3>
+
+    <label class="flex flex-col gap-1">
+      <span class="font-semibold">Name</span>
+      <input
+        class="rounded p-3 bg-modern-gray-lightest text-white outline-none ring-0 font-firacode focus:outline-none focus:ring-0"
+        type="text"
+        name="name"
+        placeholder="Your name"
+        autocomplete="name"
+        required
+      />
+    </label>
+
+    <label class="flex flex-col gap-1">
+      <span class="font-semibold">Email</span>
+      <input
+        class="rounded p-3 bg-modern-gray-lightest text-white outline-none ring-0 font-firacode focus:outline-none focus:ring-0"
+        type="email"
+        name="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        required
+      />
+    </label>
+
+    <label class="flex flex-col gap-1">
+      <span class="font-semibold">Message</span>
+      <textarea
+        class="rounded p-3 bg-modern-gray-lightest text-white outline-none ring-0 font-firacode focus:outline-none focus:ring-0"
+        name="message"
+        rows="5"
+        placeholder="Write your message..."
+        required></textarea>
+    </label>
+
+    <input type="hidden" name="_subject" value="new message" />
+    <input type="hidden" name="_redirect" value="/thanks" />
+    <input type="text" name="_gotcha" autocomplete="off" hidden />
+
+    <div class="mt-2 flex justify-end gap-3">
+      <button
+        type="button"
+        onclick="this.closest('dialog')?.close()"
+        class="cursor-pointer rounded-xl px-4 py-2 hover:text-accent"
+      >
+        Cancel
+      </button>
+
+      <button
+        type="submit"
+        class="cursor-pointer rounded-xl border-2 border-accent px-4 py-2 font-semibold duration-300 hover:bg-accent hover:text-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        Send
+      </button>
+    </div>
+  </form>
+</dialog>

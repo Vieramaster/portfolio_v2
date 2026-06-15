@@ -8,10 +8,7 @@ export interface WithIcon {
   readonly Icon: IconComponent;
 }
 
-export interface MapPinIcoProps {
-  class?: string;
-  circleClass?: string;
-}
+
 
 export interface TechStackItem extends WithIcon {
   label: string;
@@ -27,4 +24,17 @@ export interface AchievementItem extends WithIcon {
 export interface SocialLink extends WithIcon {
   label: string;
   link: string;
+}
+
+export interface AboutMeItem extends WithIcon {
+  description: string;
+}
+
+export interface LetsTalkItem extends WithIcon {
+  type?: "status" | "link";
+  iconClass: string;
+  content: string;
+  textClass?: string;
+  href?: string;
+  download?: string;
 }

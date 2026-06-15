@@ -54,6 +54,10 @@ export const updateLabelsAndStatus = (elements: SliderElements, currentIndex: nu
   
   if (statusEl) {
     statusEl.textContent = `${currentIndex + 1} / ${slides.length}`;
+    statusEl.setAttribute(
+      "aria-label",
+      `Project ${currentIndex + 1} of ${slides.length}`,
+    );
   }
 };
 
