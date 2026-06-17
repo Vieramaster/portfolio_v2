@@ -1,0 +1,80 @@
+---
+import { FORM_FIELDS, HIDDEN_FORM_FIELDS } from "./data";
+
+const fieldClass =
+  "rounded bg-modern-gray-lightest p-3 font-firacode text-white";
+
+const cancelButtonClass =
+  "cursor-pointer rounded-xl px-4 py-2 hover:text-accent";
+
+const submitButtonClass =
+  "cursor-pointer rounded-xl border-2 border-accent px-4 py-2 font-semibold duration-300 hover:bg-accent hover:text-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
+---
+
+<dialog
+  id="contact-modal"
+  aria-labelledby="contact-modal-title"
+  class="m-auto w-full max-w-md border-0 bg-transparent p-0"
+>
+  <form
+    action="https://formspree.io/f/xeorqyyj"
+    method="POST"
+    target="_blank"
+    class="flex flex-col gap-4 rounded-md bg-modern-gray-medium p-4 font-firacode text-white"
+  >
+    <h3 id="contact-modal-title" class="subTitle m-0 text-2xl">
+      Send me a message!
+    </h3>
+
+    {
+      FORM_FIELDS.map(
+        ({ component, name, placeholder, rows, type, autocomplete, label }) => (
+          <label for={name} class="flex flex-col gap-1">
+            <span class="font-semibold">{label}</span>
+
+            {component === "textarea" ? (
+              <textarea
+                id={name}
+                class={fieldClass}
+                name={name}
+                placeholder={placeholder}
+                rows={rows ?? 5}
+                required
+              />
+            ) : (
+              <input
+                id={name}
+                class={fieldClass}
+                type={type}
+                name={name}
+                placeholder={placeholder}
+                autocomplete={autocomplete}
+                required
+              />
+            )}
+          </label>
+        ),
+      )
+    }
+
+    {
+      HIDDEN_FORM_FIELDS.map(({ type, name, value, autocomplete, hidden }) => (
+        <input
+          type={type}
+          name={name}
+          value={value}
+          autocomplete={autocomplete}
+          hidden={hidden}
+        />
+      ))
+    }
+
+    <div class="mt-2 flex justify-end gap-3">
+      <button type="button" data-contact-cancel class={cancelButtonClass}>
+        Cancel
+      </button>
+
+      <button type="submit" class={submitButtonClass}> Send </button>
+    </div>
+  </form>
+</dialog>

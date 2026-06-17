@@ -1,7 +1,8 @@
 ---
 import "@/styles/global.css";
-import { SOFT_GRID_DEFAULTS } from "@/data/softGridDefaults";
-import type { SoftGridConfig } from "@/types";
+import { SOFT_GRID_DEFAULTS, type SoftGridConfig } from "./constants";
+
+export type { SoftGridConfig };
 
 interface Props extends Partial<SoftGridConfig> {
   title?: string;
@@ -58,10 +59,10 @@ const jsonLd = {
     data-speed-x={speedX}
     data-speed-y={speedY}
   >
+    <a href="#main-content" class="sr-only">Skip to main content</a>
     <canvas
       class="absolute inset-0 -z-10 w-full h-full block pointer-events-none"
-      aria-hidden="true"
-    ></canvas>
+      aria-hidden="true"></canvas>
     <slot />
   </body>
 </html>

@@ -42,7 +42,7 @@
   --color-background: var(--color-modern-gray-dark);
   --color-grid-stroke: color-mix(
     in srgb,
-    var(--color-modern-gray) 60%,
+    var(--color-modern-gray) 75%,
     transparent
   );
   --color-surface: var(--color-modern-gray);
