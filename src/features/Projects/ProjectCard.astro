@@ -1,4 +1,5 @@
 ---
+import { Image, getImage } from "astro:assets";
 import { ExternalLinkIco } from "@/shared/components/icons/ui";
 import { GitHubIco } from "@/shared/components/icons/social";
 import { TECH_STACK } from "@/features/TechStack/data";
@@ -26,6 +27,7 @@ const linkIconClass =
 const projectImageClass =
   "block h-full w-full object-cover transition-transform duration-300 ease-in-out will-change-transform group-hover:scale-105";
 const altText = imageAlt ?? `Screenshot of ${title} — ${description}`;
+const desktopOptimized = await getImage({ src: images.desktop, format: "webp" });
 ---
 
 <li class="min-w-full h-full 3xl:w-1/3 3xl:min-w-auto">
@@ -41,7 +43,15 @@ const altText = imageAlt ?? `Screenshot of ${title} — ${description}`;
     aria-current={baseIndex === 0 ? "true" : undefined}
   >
     <figure class="group block h-48 overflow-hidden rounded-md 3xl:h-50 m-0">
-      <img src={images} alt={altText} class={projectImageClass} />
+      <picture class="block h-full w-full">
+        <source srcset={desktopOptimized.src} media="(min-width: 768px)" />
+        <Image
+          src={images.mobile}
+          alt={altText}
+          class={projectImageClass}
+          layout="none"
+        />
+      </picture>
     </figure>
 
     <header class="flex items-center justify-between gap-2 3xl:px-4">

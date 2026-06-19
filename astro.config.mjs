@@ -1,22 +1,26 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-// https://astro.build/config
 export default defineConfig({
+  site: "https://martinviera.dev",
+
+  image: {
+    responsiveStyles: true,
+  },
+
   devToolbar: {
     enabled: false,
   },
+
   vite: {
+    plugins: /** @type {import("astro").AstroUserConfig["vite"] extends { plugins?: infer P } ? P : never} */ ([
+      tailwindcss(),
+    ]),
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        "@": new URL("./src", import.meta.url).pathname,
       },
     },
-    plugins: [tailwindcss()],
   },
 });

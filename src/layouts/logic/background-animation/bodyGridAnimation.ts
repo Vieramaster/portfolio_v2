@@ -29,6 +29,9 @@ export const bodyGridAnimation = (): void => {
   });
 };
 
+const prefersReducedMotion = (): boolean =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const createGridAnimation = (container: HTMLElement, config: GridConfig) => {
   const canvas = container.querySelector("canvas");
   if (!canvas) throw new Error("Canvas element not found in container");
@@ -47,16 +50,16 @@ const createGridAnimation = (container: HTMLElement, config: GridConfig) => {
   let offsetX = 0;
   let offsetY = 0;
 
-  const resize = () => {
-    dpr = window.devicePixelRatio || 1;
-    w = container.clientWidth;
-    h = container.clientHeight;
+  const drawStatic = () => {
+    drawGrid(ctx, w, h, config.grid, 0, 0);
+  };
 
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    refreshGridTheme();
+  const stopAnimation = () => {
+    cancelAnimationFrame(raf);
+    raf = 0;
+    offsetX = 0;
+    offsetY = 0;
+    drawStatic();
   };
 
   const draw = () => {
@@ -68,15 +71,53 @@ const createGridAnimation = (container: HTMLElement, config: GridConfig) => {
     raf = requestAnimationFrame(draw);
   };
 
+  const startAnimation = () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(draw);
+  };
+
+  const handleReducedMotionChange = () => {
+    if (prefersReducedMotion()) {
+      stopAnimation();
+    } else {
+      startAnimation();
+    }
+  };
+
+  const reducedMotionMedia = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  );
+  reducedMotionMedia.addEventListener("change", handleReducedMotionChange);
+
+  const resize = () => {
+    dpr = window.devicePixelRatio || 1;
+    w = container.clientWidth;
+    h = container.clientHeight;
+
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    refreshGridTheme();
+
+    if (prefersReducedMotion()) {
+      drawStatic();
+    }
+  };
+
   const observer = new ResizeObserver(resize);
   observer.observe(container);
 
   resize();
-  raf = requestAnimationFrame(draw);
+
+  if (!prefersReducedMotion()) {
+    raf = requestAnimationFrame(draw);
+  }
 
   return {
     destroy: () => {
       cancelAnimationFrame(raf);
+      reducedMotionMedia.removeEventListener("change", handleReducedMotionChange);
       observer.disconnect(); // ¡Buenas prácticas! Evitamos memory leaks del observer
     },
   };

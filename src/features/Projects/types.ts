@@ -1,9 +1,12 @@
-
+import type { ImageMetadata } from "astro";
 
 export interface Project {
     title: string;
     description: string;
-    images: string;
+    images: {
+        mobile: ImageMetadata;
+        desktop: ImageMetadata;
+    };
     imageAlt?: string;
     url: string;
     github: string;
