@@ -1,18 +1,22 @@
 ---
 import "@/styles/global.css";
-import { SOFT_GRID_DEFAULTS } from "./constants";
+import { SEO_DEFAULTS, SOFT_GRID_DEFAULTS } from "./constants";
 
 import type { SoftGridConfig } from "./types"
 
 interface Props extends Partial<SoftGridConfig> {
   title?: string;
   description?: string;
+  image?: string;
+  imageAlt?: string;
   softGridId?: string;
 }
 
 const {
-  title = "Martin Viera | Front-End Developer",
-  description = "Front-End Developer portfolio showcasing projects built with React, Next.js, Astro, TypeScript, and Tailwind CSS.",
+  title = SEO_DEFAULTS.title,
+  description = SEO_DEFAULTS.description,
+  image = SEO_DEFAULTS.imagePath,
+  imageAlt = SEO_DEFAULTS.imageAlt,
   softGridId = crypto.randomUUID(),
   grid = SOFT_GRID_DEFAULTS.grid,
   speedX = SOFT_GRID_DEFAULTS.speedX,
@@ -22,8 +26,14 @@ const {
 const seo = {
   title,
   description,
-  url: Astro.url.href,
-  image: new URL("/images/og-image.webp", Astro.site).href,
+  siteName: SEO_DEFAULTS.siteName,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  image: new URL(image, Astro.site).href,
+  imageAlt,
+  imageWidth: SEO_DEFAULTS.imageWidth,
+  imageHeight: SEO_DEFAULTS.imageHeight,
+  imageType: SEO_DEFAULTS.imageType,
+  locale: SEO_DEFAULTS.locale,
 };
 
 const jsonLd = {
@@ -62,19 +72,26 @@ const jsonLd = {
 
     <title>{seo.title}</title>
 
-    <!-- Open Graph -->
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, Telegram, Discord, etc.) -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={seo.siteName} />
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
     <meta property="og:url" content={seo.url} />
+    <meta property="og:locale" content={seo.locale} />
     <meta property="og:image" content={seo.image} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:secure_url" content={seo.image} />
+    <meta property="og:image:type" content={seo.imageType} />
+    <meta property="og:image:width" content={String(seo.imageWidth)} />
+    <meta property="og:image:height" content={String(seo.imageHeight)} />
+    <meta property="og:image:alt" content={seo.imageAlt} />
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={seo.title} />
     <meta name="twitter:description" content={seo.description} />
     <meta name="twitter:image" content={seo.image} />
+    <meta name="twitter:image:alt" content={seo.imageAlt} />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
