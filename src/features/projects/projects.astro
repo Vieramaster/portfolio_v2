@@ -1,0 +1,85 @@
+---
+import { PROJECTS_LIST } from "./data";
+import ProjectCard from "./components/project-card.astro";
+import { ChevronArrowIco } from "@/shared/components/icons/ui";
+
+const sliderControlClass =
+  "touch-target h-7 text-accent cursor-pointer enabled:hover:[&_svg]:scale-110 disabled:cursor-not-allowed disabled:text-muted disabled:[&_svg]:stroke-muted transition-colors duration-200 ease-in-out";
+
+const sectionTitleClass = "text-2xl md:text-3xl subTitle";
+---
+
+<section
+  class="card w-full flex flex-col
+        md:size-full md:col-start-2 md:row-start-12 md:row-span-10
+        xl:col-start-3 xl:row-start-7 xl:row-span-9
+        3xl:col-end-6 3xl:row-start-6 3xl:row-span-10"
+  aria-labelledby="projects-heading"
+>
+  <header class="flex items-center text-start justify-between gap-2 mb-3">
+    <h2 id="projects-heading" class={`${sectionTitleClass} flex gap-3`}>
+      <span class={`${sectionTitleClass} hidden 3xl:block`}>Featured</span>
+      Projects
+    </h2>
+
+    <p
+      data-slider-status
+      class="text-md text-muted tabular-nums mt-1 3xl:hidden"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label={`Project 1 of ${PROJECTS_LIST.length}`}
+    >
+      1 / {PROJECTS_LIST.length}
+    </p>
+  </header>
+
+  <div
+    data-slider
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Projects"
+    tabindex="0"
+    class="overflow-hidden w-full relative flex-1 flex flex-col min-h-0"
+  >
+    <ul
+      data-slider-track
+      class="flex flex-1 min-h-0 gap-3 transition-transform duration-300 ease-in-out 3xl:gap-6"
+    >
+      {
+        PROJECTS_LIST.map((project, index) => (
+          <ProjectCard
+            {...project}
+            baseIndex={index}
+            totalSlides={PROJECTS_LIST.length}
+          />
+        ))
+      }
+    </ul>
+
+    <nav
+      aria-label="Project slides"
+      class="absolute top-1/6 w-full flex items-center justify-between gap-2 3xl:hidden"
+    >
+      <button
+        type="button"
+        data-slider-prev
+        aria-label="Previous project"
+        title="Previous project"
+        class={sliderControlClass}
+        disabled
+      >
+        <ChevronArrowIco class="rotate-180" aria-hidden="true" />
+      </button>
+
+      <button
+        type="button"
+        data-slider-next
+        aria-label="Next project"
+        title="Next project"
+        class={sliderControlClass}
+      >
+        <ChevronArrowIco aria-hidden="true" />
+      </button>
+    </nav>
+  </div>
+</section>

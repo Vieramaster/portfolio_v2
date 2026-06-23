@@ -1,0 +1,40 @@
+---
+import { SOCIAL_LINKS } from "./data";
+---
+
+<nav
+  aria-labelledby="socials-heading"
+  class="card
+    max-md:col-auto
+    md:size-full md:col-start-1 md:row-start-20 md:row-span-2 md:justify-center
+    xl:col-start-1 xl:row-start-12 xl:row-span-2
+    3xl:row-span-2 3xl:row-start-12"
+>
+  <h2 id="socials-heading" class="sr-only">Let's Connect!</h2>
+
+  <ul
+    class="flex gap-2 justify-between items-center md:justify-center md:gap-4"
+  >
+    {
+      SOCIAL_LINKS.map(({ Icon, link, label }) => {
+        return (
+          <li class="size-10 shrink-0  hover:-translate-y-1 group transition-all duration-300 md:size-11">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${label} (opens in new tab)`}
+              title={label}
+              class=" "
+            >
+              <Icon
+                class=" size-full group-hover:text-accent transition-all duration-300"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

@@ -1,5 +1,5 @@
-import { projectsSlider } from "@/features/Projects/logic/manager";
-import { bodyGridAnimation } from "./background-animation/bodyGridAnimation";
+import { projectsSlider } from "@/features/projects/logic/manager";
+import { bodyGridAnimation } from "./background-animation/body-grid-animation";
 
 export const initClient = (): void => {
   projectsSlider();

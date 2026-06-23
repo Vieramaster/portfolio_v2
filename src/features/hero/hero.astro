@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import { HERO_DATA } from "./data";
+
+const { name, role, image, imageAlt } = HERO_DATA;
+---
+
+<section
+  role="banner"
+  class="card w-full flex flex-col gap-4 justify-center items-center text-center
+  md:row-span-7 md:size-full
+  xl:col-start-1 xl:row-span-7"
+  aria-labelledby="hero-name"
+>
+  <figure
+    class="size-48 border border-accent rounded-full bg-background xl:size-52 m-0 overflow-hidden"
+  >
+    <Image
+      src={image}
+      alt={imageAlt}
+      class="size-full object-cover"
+      loading="eager"
+    />
+  </figure>
+
+  <header>
+    <h1 id="hero-name" class="title text-3xl xl:text-4xl">{name}</h1>
+    <p class="text-xl xl:text-2xl">{role}</p>
+  </header>
+</section>

@@ -1,7 +1,7 @@
-export { default as AstroIco } from "./AstroIco.astro"
-export { default as ReactIco } from "./ReactIco.astro"
-export { default as NextIco } from "./NextIco.astro"
-export { default as TailwindIco } from "./TailwindIco.astro"
-export { default as TypeScriptIco } from "./TypeScriptIco.astro"
-export { default as JestIco } from "./JestIco.astro"
-export { default as ReactNativeIco } from "./ReactNativeIco.astro"
+export { default as AstroIco } from "./astro-ico.astro";
+export { default as ReactIco } from "./react-ico.astro";
+export { default as NextIco } from "./next-ico.astro";
+export { default as TailwindIco } from "./tailwind-ico.astro";
+export { default as TypeScriptIco } from "./typescript-ico.astro";
+export { default as JestIco } from "./jest-ico.astro";
+export { default as ReactNativeIco } from "./react-native-ico.astro";
