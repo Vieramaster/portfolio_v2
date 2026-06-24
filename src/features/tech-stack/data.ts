@@ -19,14 +19,16 @@ export type TechStackLabel = (typeof TECH_STACK)[number]["label"];
 
 export const TECH_TOOLS = [
   "TanStack",
-  "Vercel",
+
   "Zustand",
-  "Git/GitHub",
-  "Zod",
+  "Git",
+
   "Shadcn/ui",
   "React Doctor",
   "Vitest",
   "Eslint",
   "Prettier",
   "React Router",
+  "Zod",
+  "Vercel",
 ] as const satisfies readonly TechTool[];

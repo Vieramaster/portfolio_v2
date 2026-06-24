@@ -24,14 +24,14 @@ const BASE_LI_CLASS = "flex items-center gap-4 ";
 >
   <h2 id="lets-talk-heading" class="sr-only">Contact</h2>
 
-  <ul class="flex flex-col gap-2">
+  <ul class="flex flex-col gap-3">
     <li class={BASE_LI_CLASS}>
       <CircleIco class={`${BASE_ICON_CLASS}`} />
-      <span
+      <p
         class="animate-pulse [animation-duration:3s] leading-none text-accent!"
       >
         AVAILABLE FOR WORK
-      </span>
+      </p>
     </li>
 
     <li class={BASE_LI_CLASS}>
@@ -45,6 +45,7 @@ const BASE_LI_CLASS = "flex items-center gap-4 ";
         href="/martin-CV.pdf"
         download="Martin-CV.pdf"
         aria-label="Download curriculum vitae PDF"
+        class="text-secondary"
       >
         Download Curriculum
       </a>
@@ -58,7 +59,7 @@ const BASE_LI_CLASS = "flex items-center gap-4 ";
     commandfor="contact-modal"
     command="show-modal"
   >
-    <span class="flex-1 text-surface! xl:text-xl">Let's Talk!</span>
+    <span class="flex-1 text-surface! xl:text-xl font-black">Let's Talk!</span>
 
     <ArrowRightIco
       class="shrink-0 stroke-surface xl:size-7"

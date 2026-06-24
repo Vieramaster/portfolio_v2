@@ -1,36 +1,20 @@
 ---
 import { PROJECTS_LIST } from "./data";
 import ProjectCard from "./components/project-card.astro";
-import { ChevronArrowIco } from "@/shared/components/icons/ui";
-
-const sliderControlClass =
-  "touch-target h-7 text-accent cursor-pointer enabled:hover:[&_svg]:scale-110 disabled:cursor-not-allowed disabled:text-muted disabled:[&_svg]:stroke-muted transition-colors duration-200 ease-in-out";
-
-const sectionTitleClass = "text-2xl md:text-3xl subTitle";
 ---
 
 <section
   class="card w-full flex flex-col
-        md:size-full md:col-start-2 md:row-start-12 md:row-span-10
+        md:size-full md:col-start-2 md:row-start-12 md:row-span-11
         xl:col-start-3 xl:row-start-7 xl:row-span-9
         3xl:col-end-6 3xl:row-start-6 3xl:row-span-10"
   aria-labelledby="projects-heading"
 >
   <header class="flex items-center text-start justify-between gap-2 mb-3">
-    <h2 id="projects-heading" class={`${sectionTitleClass} flex gap-3`}>
-      <span class={`${sectionTitleClass} hidden 3xl:block`}>Featured</span>
+    <h2 id="projects-heading" class="flex gap-3">
+      <span class="text-accent font-heading hidden 3xl:block">Featured</span>
       Projects
     </h2>
-
-    <p
-      data-slider-status
-      class="text-md text-muted tabular-nums mt-1 3xl:hidden"
-      aria-live="polite"
-      aria-atomic="true"
-      aria-label={`Project 1 of ${PROJECTS_LIST.length}`}
-    >
-      1 / {PROJECTS_LIST.length}
-    </p>
   </header>
 
   <div
@@ -38,12 +22,15 @@ const sectionTitleClass = "text-2xl md:text-3xl subTitle";
     role="region"
     aria-roledescription="carousel"
     aria-label="Projects"
-    tabindex="0"
-    class="overflow-hidden w-full relative flex-1 flex flex-col min-h-0"
+    class="overflow-x-clip w-full relative flex-1 flex flex-col min-h-0 @container
+      has-[#proj-slide-0:checked]:**:data-slider-track:translate-x-0
+      has-[#proj-slide-1:checked]:**:data-slider-track:translate-x-[-100cqw]
+      has-[#proj-slide-2:checked]:**:data-slider-track:translate-x-[-200cqw]"
   >
     <ul
       data-slider-track
-      class="flex flex-1 min-h-0 gap-3 transition-transform duration-300 ease-in-out 3xl:gap-6"
+      class="flex flex-1 min-h-0 shrink-0 self-start transition-transform duration-300 ease-in-out
+        3xl:w-full 3xl:gap-6"
     >
       {
         PROJECTS_LIST.map((project, index) => (
@@ -58,28 +45,27 @@ const sectionTitleClass = "text-2xl md:text-3xl subTitle";
 
     <nav
       aria-label="Project slides"
-      class="absolute top-1/6 w-full flex items-center justify-between gap-2 3xl:hidden"
+      class="absolute left-1/2 -translate-x-1/2 top-48 md:top-49 flex items-center gap-2 3xl:hidden"
     >
-      <button
-        type="button"
-        data-slider-prev
-        aria-label="Previous project"
-        title="Previous project"
-        class={sliderControlClass}
-        disabled
-      >
-        <ChevronArrowIco class="rotate-180" aria-hidden="true" />
-      </button>
-
-      <button
-        type="button"
-        data-slider-next
-        aria-label="Next project"
-        title="Next project"
-        class={sliderControlClass}
-      >
-        <ChevronArrowIco aria-hidden="true" />
-      </button>
+      {
+        PROJECTS_LIST.map((_, i) => (
+          <label class="relative size-3 cursor-pointer">
+            <input
+              type="radio"
+              name="projects-carousel"
+              id={`proj-slide-${i}`}
+              class="peer absolute inset-0 size-full opacity-0 cursor-pointer"
+              checked={i === 0}
+              data-slider-radio
+              aria-label={`Go to project ${i + 1}`}
+            />
+            <span
+              class="block size-3 rounded-full ring-1 ring-white bg-surface transition-colors peer-checked:bg-accent peer-focus-visible:outline peer-focus-visible:outline-accent"
+              aria-hidden="true"
+            />
+          </label>
+        ))
+      }
     </nav>
   </div>
 </section>

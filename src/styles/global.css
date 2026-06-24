@@ -1,28 +1,18 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Axope";
-  src: url("/fonts/axope.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Firacode";
-  src: url("/fonts/firacode.woff2") format("woff2");
-  font-style: normal;
-  font-display: swap;
-}
+/* =========================
+   DESIGN TOKENS (THEME)
+========================= */
 
 @theme {
   --breakpoint-3xl: 112.5rem;
 
+  /* Colors */
   --color-power: #c3d809;
   --color-power-light: #dbe84b;
   --color-power-dark: #a0b207;
 
---color-modern-gray-lightest: #535153;
+  --color-modern-gray-lightest: #535153;
   --color-modern-gray-light: #333133;
   --color-modern-gray-light-medium: #2d2b2d;
   --color-modern-gray-medium: #2a282a;
@@ -30,7 +20,6 @@
   --color-modern-gray: #222022;
   --color-modern-gray-dark-medium: #1a191a;
   --color-modern-gray-dark: #111011;
-
 
   --color-white: #f5f5f5;
   --color-gray-200: #d4d4d4;
@@ -40,13 +29,14 @@
 
   /* Surfaces */
   --color-background: var(--color-modern-gray-dark);
+  --color-surface: var(--color-modern-gray);
+  --color-surface-hover: var(--color-modern-gray-light);
+
   --color-grid-stroke: color-mix(
     in srgb,
     var(--color-modern-gray) 75%,
     transparent
   );
-  --color-surface: var(--color-modern-gray);
-  --color-surface-hover: var(--color-modern-gray-light);
 
   /* Text */
   --color-primary: var(--color-white);
@@ -67,40 +57,59 @@
 
   /* Borders */
   --color-border: var(--color-border-gray);
-  --color-border-hover: var(--color-power);
 
   /* Links */
   --color-link: var(--color-gray-200);
   --color-link-hover: var(--color-power);
 
-  /* dialog*/
+  /* Dialog */
   --color-dialog-surface: var(--color-gray-600);
   --color-dialog-input: var(--color-gray-400);
   --color-dialog-ring: var(--color-power-dark);
   --color-dialog-text: var(--color-power);
   --color-dialog-label: var(--color-white);
-  /* Fonts */
-  --font-firacode: "Firacode", monospace;
-  --font-axope: "Axope", sans-serif;
+
+  /* Fonts (TOKENS ONLY) */
 }
 
-/* Typography */
-
-p,
-span,
-li {
-  @apply font-firacode text-white;
+@theme inline {
+  --font-heading: var(--font-SpaceGrotesk);
+  --font-mono: var(--font-JetBrainsMono);
+  --font-snippet: var(--font-Firacode);
 }
 
-.title {
-  @apply tracking-[3px] text-accent font-axope;
+/* =========================
+   BASE TYPOGRAPHY
+========================= */
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-mono;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-bold font-heading text-accent;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply  text-xl md:text-2xl font-mono font-semibold;
+  }
+
 }
 
-.subTitle {
-  @apply font-semibold text-accent! font-firacode;
-}
-
-/* Borders */
+/* =========================
+   BORDERS
+========================= */
 
 .gray-bordered,
 .accent-dark-bordered {
@@ -115,29 +124,26 @@ li {
   @apply border-accent-dark/30 px-2 py-1;
 }
 
-/* Components */
+/* =========================
+   COMPONENTS
+========================= */
 
 .card {
   @apply w-full rounded-md bg-surface p-5;
 }
-/* Shadows */
+
+/* =========================
+   SHADOWS
+========================= */
 
 .card,
 .shadow-box {
   box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.75);
 }
 
-[data-slider]:not(.js-initialized)
-  [data-slider-track]
-  > [data-slider-slide][hidden] {
-  display: none;
-}
-
-[data-slider] {
-  touch-action: pan-y;
-}
-
-
+/* =========================
+   ACCESSIBILITY
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -156,6 +162,11 @@ button:focus-visible,
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
+
+/* =========================
+   DIALOG
+========================= */
+
 dialog::backdrop {
   background: rgb(0 0 0 / 0.3);
   backdrop-filter: blur(4px);

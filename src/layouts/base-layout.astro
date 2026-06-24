@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import { Font } from "astro:assets";
 import { SEO_DEFAULTS, SOFT_GRID_DEFAULTS } from "./constants";
 
 import type { SoftGridConfig } from "./types"
@@ -72,6 +73,12 @@ const jsonLd = {
 
     <title>{seo.title}</title>
 
+    <Font cssVariable="--font-azonix" preload />
+    <Font cssVariable="--font-montserrat" preload />
+    <Font cssVariable="--font-SpaceGrotesk" preload />
+    <Font cssVariable="--font-Inter" preload />
+    <Font cssVariable="--font-JetBrainsMono" preload/>
+    <Font cssVariable="--font-Firacode" preload />
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp, Telegram, Discord, etc.) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={seo.siteName} />

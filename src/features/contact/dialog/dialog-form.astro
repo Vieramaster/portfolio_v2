@@ -2,13 +2,13 @@
 import { FORM_FIELDS, HIDDEN_FORM_FIELDS } from "./data";
 import { CloseIco } from "@/shared/components/icons/ui";
 const fieldClass =
-  "rounded bg-modern-gray-lightest p-3 font-firacode text-white";
+  "rounded bg-modern-gray-lightest p-3 font-mono text-white";
 ---
 
 <dialog
   id="contact-modal"
   aria-labelledby="contact-modal-title"
-  class="m-auto w-full max-w-md border-0 bg-modern-gray-medium rounded-md p-4 font-firacode text-white"
+  class="m-auto w-full max-w-md border-0 bg-modern-gray-medium rounded-md p-4 text-white!"
 >
   <button
     type="button"
@@ -24,9 +24,9 @@ const fieldClass =
     method="POST"
     class="flex flex-col gap-4"
   >
-    <h3 id="contact-modal-title" class="subTitle m-0 text-2xl">
+    <h2 id="contact-modal-title" class=" m-0 text-3xl">
       Send me a message!
-    </h3>
+    </h2>
 
     {
       FORM_FIELDS.map(

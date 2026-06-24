@@ -23,7 +23,7 @@ export const PROJECTS_LIST = [
         projectURL: "https://outfitland.vercel.app",
         techs: ["React", "Tailwind", "TypeScript"],
         description:
-            "Men's outfit generator with weather-based suggestions, color matching, practical styling tools, and an intuitive clothing recommendation system.",
+            "Men's outfit generator with weather-based suggestions, color matching, styling tools, and an intuitive clothing recommendation system.",
     },
     {
         title: "Fantaspic",
