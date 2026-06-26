@@ -1,0 +1,76 @@
+---
+import { CloseIco } from "@/shared/components/icons/ui";
+
+const fieldClass = "rounded bg-modern-gray-lightest p-3 font-mono text-white";
+---
+
+<dialog
+  id="contact-modal"
+  aria-labelledby="contact-modal-title"
+  class="m-auto w-full max-w-md rounded-md border-0 bg-modern-gray-medium p-4 text-white!"
+>
+  <button
+    type="button"
+    commandfor="contact-modal"
+    command="close"
+    class="absolute top-4 right-4 cursor-pointer"
+  >
+    <CloseIco class="size-6 stroke-white" />
+  </button>
+
+  <form
+    action="https://formspree.io/f/xeorqyyj"
+    method="POST"
+    class="flex flex-col gap-4"
+  >
+    <h2 id="contact-modal-title" class="m-0 text-3xl">Send me a message!</h2>
+
+    <label for="name" class="flex flex-col gap-1">
+      <span class="font-semibold">Name</span>
+      <input
+        id="name"
+        class={fieldClass}
+        type="text"
+        name="name"
+        placeholder="Your name"
+        autocomplete="name"
+        required
+      />
+    </label>
+
+    <label for="email" class="flex flex-col gap-1">
+      <span class="font-semibold">Email</span>
+      <input
+        id="email"
+        class={fieldClass}
+        type="email"
+        name="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        required
+      />
+    </label>
+
+    <label for="message" class="flex flex-col gap-1">
+      <span class="font-semibold">Message</span>
+      <textarea
+        id="message"
+        class={fieldClass}
+        name="message"
+        placeholder="Write your message..."
+        rows={5}
+        required></textarea>
+    </label>
+
+    <input type="hidden" name="_subject" value="new message" />
+    <input type="hidden" name="_redirect" value="/thanks" />
+    <input type="text" name="_gotcha" autocomplete="off" hidden />
+
+    <button
+      type="submit"
+      class="self-end w-1/2 cursor-pointer rounded-md border-2 border-accent px-4 py-2 font-semibold duration-300 hover:bg-accent hover:text-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      Send
+    </button>
+  </form>
+</dialog>

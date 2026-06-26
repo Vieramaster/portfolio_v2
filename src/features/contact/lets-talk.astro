@@ -1,9 +1,6 @@
 ---
 import { ArrowRightIco } from "@/shared/components/icons/ui";
 
-import Button from "@/shared/components/ui/button.astro";
-import DialogForm from "./dialog/dialog-form.astro";
-
 import {
   CurriculumIco,
   CircleIco,
@@ -26,7 +23,7 @@ const BASE_LI_CLASS = "flex items-center gap-4 ";
 
   <ul class="flex flex-col gap-3">
     <li class={BASE_LI_CLASS}>
-      <CircleIco class={`${BASE_ICON_CLASS}`} />
+      <CircleIco class={BASE_ICON_CLASS} />
       <p
         class="animate-pulse [animation-duration:3s] leading-none text-accent!"
       >
@@ -36,14 +33,14 @@ const BASE_LI_CLASS = "flex items-center gap-4 ";
 
     <li class={BASE_LI_CLASS}>
       <MapPinIco class={`${BASE_ICON_CLASS} stroke-accent fill-accent`} />
-      <span>Mar del Plata, Argentina</span>
+      <p>Mar del Plata, Argentina</p>
     </li>
 
     <li class={BASE_LI_CLASS}>
       <CurriculumIco class={BASE_ICON_CLASS} />
       <a
-        href="/martin-CV.pdf"
-        download="Martin-CV.pdf"
+        href="/public/cv/martin-viera-cv.pdf"
+        download="martin-viera-CV.pdf"
         aria-label="Download curriculum vitae PDF"
         class="text-secondary"
       >
@@ -52,12 +49,13 @@ const BASE_LI_CLASS = "flex items-center gap-4 ";
     </li>
   </ul>
 
-  <Button
+  <button
     aria-haspopup="dialog"
     aria-controls="contact-modal"
-    title="Open contact form"
     commandfor="contact-modal"
     command="show-modal"
+    type="button"
+    class="w-full flex items-center text-center bg-accent-dark/80 p-2 rounded-md font-bold cursor-pointer hover:bg-accent transition-all duration-300 active:bg-accent-active active:translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
   >
     <span class="flex-1 text-surface! xl:text-xl font-black">Let's Talk!</span>
 
@@ -65,7 +63,5 @@ const BASE_LI_CLASS = "flex items-center gap-4 ";
       class="shrink-0 stroke-surface xl:size-7"
       aria-hidden="true"
     />
-  </Button>
+  </button>
 </section>
-
-<DialogForm />

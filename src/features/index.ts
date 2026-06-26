@@ -5,3 +5,4 @@ export { default as Projects } from "./projects/projects.astro";
 export { default as Socials } from "./socials/socials.astro";
 export { default as TechStack } from "./tech-stack/tech-stack.astro";
 export { default as Achievements } from "./achievements/achievements.astro";
+export {default as DialogForm} from "./contact/dialog-form.astro"
