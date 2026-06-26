@@ -90,7 +90,7 @@
   h1,
   h2,
   h3 {
-    @apply font-bold font-heading text-accent;
+    @apply font-bold font-heading text-accent ;
   }
 
   h1 {
@@ -102,7 +102,7 @@
   }
 
   h3 {
-    @apply  text-xl md:text-2xl font-mono font-semibold;
+    @apply  text-xl md:text-2xl  font-semibold;
   }
 
 }
