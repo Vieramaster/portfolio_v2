@@ -2,7 +2,7 @@ import heroImage from "@/assets/images/hero/hero.webp";
 
 export const PROFILE = {
   name: "Martín Viera",
-  jobTitle: "Front-End Developer",
+  jobTitle: "Frontend Developer",
   location: "Mar del Plata, Argentina",
   image: heroImage,
   imageAlt:
