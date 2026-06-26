@@ -5,7 +5,7 @@ import {
   TailwindIco,
   TypeScriptIco,
 } from "@/shared/components/icons/tech";
-import type { TechStackItem, TechTool } from "./types";
+import type { TechStackItem } from "./types";
 
 export const TECH_STACK = [
   { label: "Astro", Icon: AstroIco },
@@ -15,14 +15,10 @@ export const TECH_STACK = [
   { label: "TypeScript", Icon: TypeScriptIco },
 ] as const satisfies readonly TechStackItem[];
 
-export type TechStackLabel = (typeof TECH_STACK)[number]["label"];
-
 export const TECH_TOOLS = [
   "TanStack",
-
   "Zustand",
   "Git",
-
   "Shadcn/ui",
   "React Doctor",
   "Vitest",
@@ -31,4 +27,4 @@ export const TECH_TOOLS = [
   "React Router",
   "Zod",
   "Vercel",
-] as const satisfies readonly TechTool[];
+] as const;

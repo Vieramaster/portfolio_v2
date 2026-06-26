@@ -1,13 +1,10 @@
 ---
+import { FEATURE_GRID_POSITIONS } from "@/layouts/grid-config";
 import { ABOUT_ME_ITEMS } from "./data";
 ---
 
 <section
-  class="card flex flex-col justify-center gap-4
-    max-md:col-auto max-md:row-auto
-    md:size-full md:col-start-2 md:row-span-11
-    xl:col-start-2 xl:col-end-4 xl:row-span-6 xl:row-start-1
-    3xl:col-start-2 3xl:col-end-6 3xl:row-start-1 3xl:row-span-5 3xl:text-lg"
+  class={`card flex flex-col justify-center gap-4 3xl:text-lg ${FEATURE_GRID_POSITIONS.aboutMe}`}
   aria-labelledby="about-me-heading"
 >
   <h2 id="about-me-heading">About Me</h2>

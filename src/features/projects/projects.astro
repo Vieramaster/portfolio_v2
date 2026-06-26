@@ -1,13 +1,16 @@
 ---
 import { PROJECTS_LIST } from "./data";
 import ProjectCard from "./components/project-card.astro";
+import { FEATURE_GRID_POSITIONS } from "@/layouts/grid-config";
+
+const carouselStyles = PROJECTS_LIST.map(
+  (_, index) =>
+    `[data-slider]:has(#proj-slide-${index}:checked) [data-slider-track]{transform:translateX(-${index * 100}cqw)}`,
+).join("");
 ---
 
 <section
-  class="card w-full flex flex-col
-        md:size-full md:col-start-2 md:row-start-12 md:row-span-11
-        xl:col-start-3 xl:row-start-7 xl:row-span-9
-        3xl:col-end-6 3xl:row-start-6 3xl:row-span-10"
+  class={`card w-full flex flex-col ${FEATURE_GRID_POSITIONS.projects}`}
   aria-labelledby="projects-heading"
 >
   <header class="flex items-center text-start justify-between gap-2 mb-3">
@@ -22,10 +25,7 @@ import ProjectCard from "./components/project-card.astro";
     role="region"
     aria-roledescription="carousel"
     aria-label="Projects"
-    class="overflow-x-clip w-full relative flex-1 flex flex-col min-h-0 @container
-      has-[#proj-slide-0:checked]:**:data-slider-track:translate-x-0
-      has-[#proj-slide-1:checked]:**:data-slider-track:translate-x-[-100cqw]
-      has-[#proj-slide-2:checked]:**:data-slider-track:translate-x-[-200cqw]"
+    class="overflow-x-clip w-full relative flex-1 flex flex-col min-h-0 @container"
   >
     <ul
       data-slider-track
@@ -69,3 +69,5 @@ import ProjectCard from "./components/project-card.astro";
     </nav>
   </div>
 </section>
+
+<style is:global set:html={carouselStyles}></style>

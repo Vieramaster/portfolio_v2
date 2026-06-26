@@ -1,4 +1,5 @@
 import { drawGrid, refreshGridTheme } from "./grid-rendered";
+import { SOFT_GRID_DEFAULTS } from "../../constants";
 
 interface GridConfig {
   grid: number;
@@ -17,9 +18,9 @@ export const bodyGridAnimation = (): void => {
     if (!id || INSTANCES.has(id)) return;
 
     const config: GridConfig = {
-      grid: Number(el.dataset.grid) || 40,
-      speedX: Number(el.dataset.speedX) || 0.5,
-      speedY: Number(el.dataset.speedY) || 0.5,
+      grid: Number(el.dataset.grid) || SOFT_GRID_DEFAULTS.grid,
+      speedX: Number(el.dataset.speedX) || SOFT_GRID_DEFAULTS.speedX,
+      speedY: Number(el.dataset.speedY) || SOFT_GRID_DEFAULTS.speedY,
     };
 
     const instance = createGridAnimation(el, config);

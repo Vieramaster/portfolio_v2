@@ -1,10 +1,14 @@
 import heroImage from "@/assets/images/hero/hero.webp";
-import type { HeroData } from "./types";
 
-export const HERO_DATA = {
+export const PROFILE = {
   name: "Martín Viera",
-  role: "Frontend Developer",
+  jobTitle: "Front-End Developer",
+  location: "Mar del Plata, Argentina",
   image: heroImage,
   imageAlt:
     "Portrait of Martín Viera with his face turned slightly to the right, serious expression, black T-shirt, dark background with soft lighting.",
-} as const satisfies HeroData;
+  cv: {
+    href: "/cv/martin-viera-cv.pdf",
+    downloadFilename: "martin-viera-CV.pdf",
+  },
+} as const;

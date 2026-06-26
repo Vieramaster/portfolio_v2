@@ -1,5 +1,6 @@
 import eslintPluginAstro from "eslint-plugin-astro";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import tseslint from "typescript-eslint";
 
 export default [
   ...eslintPluginAstro.configs["flat/recommended"],
@@ -7,20 +8,12 @@ export default [
     files: ["**/*.astro"],
     languageOptions: {
       parserOptions: {
-        parser: "@typescript-eslint/parser",
+        parser: tseslint.parser,
         extraFileExtensions: [".astro"],
-        project: "./tsconfig.json",
       },
     },
-  },
-  {
-    files: ["src/logic/**/*.js"],
     plugins: {
       "jsx-a11y": jsxA11y,
-    },
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
     },
     rules: {
       ...jsxA11y.configs.recommended.rules,

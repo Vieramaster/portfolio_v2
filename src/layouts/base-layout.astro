@@ -1,9 +1,10 @@
 ---
 import "@/styles/global.css";
 import { Font } from "astro:assets";
+import { PROFILE } from "@/shared/constants/profile";
 import { SEO_DEFAULTS, SOFT_GRID_DEFAULTS } from "./constants";
 
-import type { SoftGridConfig } from "./types"
+import type { SoftGridConfig } from "./types";
 
 interface Props extends Partial<SoftGridConfig> {
   title?: string;
@@ -42,18 +43,18 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Person",
-      name: "Martin Viera",
-      jobTitle: "Front-End Developer",
+      name: PROFILE.name,
+      jobTitle: PROFILE.jobTitle,
       url: Astro.site ?? undefined,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Mar del Plata",
+        addressLocality: PROFILE.location,
         addressCountry: "AR",
       },
     },
     {
       "@type": "WebSite",
-      name: "Martin Viera Portfolio",
+      name: SEO_DEFAULTS.siteName,
       description: seo.description,
       inLanguage: "en",
     },

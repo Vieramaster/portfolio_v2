@@ -1,4 +1,4 @@
-const GRID_MEDIA = "(min-width: 112.5rem)";
+import { GRID_MEDIA_QUERY } from "@/shared/constants/breakpoints";
 
 export const projectsSlider = (): void => {
   const slider = document.querySelector<HTMLElement>("[data-slider]");
@@ -14,7 +14,7 @@ export const projectsSlider = (): void => {
 
   if (radios.length === 0 || slides.length === 0) return;
 
-  const gridMedia = window.matchMedia(GRID_MEDIA);
+  const gridMedia = window.matchMedia(GRID_MEDIA_QUERY);
 
   const getActiveIndex = (): number => {
     const checkedIndex = radios.findIndex((radio) => radio.checked);

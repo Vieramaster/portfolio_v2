@@ -1,23 +1,24 @@
 ---
+import { FEATURE_GRID_POSITIONS } from "@/layouts/grid-config";
 import { TECH_STACK, TECH_TOOLS } from "./data";
 ---
 
 <section
-  class="card w-full flex flex-col gap-3 justify-between
-  md:col-start-1 md:row-start-12 md:row-span-9 md:size-full
-  xl:col-start-2 xl:row-start-7 xl:row-span-7
-  3xl:row-start-6 3xl:row-span-8"
+  class={`card w-full flex flex-col gap-3 justify-between ${FEATURE_GRID_POSITIONS.techStack}`}
   aria-labelledby="tech-stack-heading"
 >
-  <h2 id="tech-stack-heading ">Tech Stack</h2>
+  <h2 id="tech-stack-heading">Tech Stack</h2>
 
   <h3 class="text-center">Core</h3>
 
-  <ul class="flex flex-wrap gap-4 justify-center items-center ">
+  <ul class="flex flex-wrap gap-4 justify-center items-center">
     {
       TECH_STACK.map(({ Icon, label }) => {
         return (
-          <li class="shrink-0 size-8 md:size-11 xl:size-9 3xl:size-11 " title={label}>
+          <li
+            class="shrink-0 size-8 md:size-11 xl:size-9 3xl:size-11 "
+            title={label}
+          >
             <Icon aria-hidden="true" />
             <span class="sr-only">{label}</span>
           </li>

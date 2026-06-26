@@ -1,29 +1,31 @@
 ---
+import { FEATURE_GRID_POSITIONS } from "@/layouts/grid-config";
 import { ACHIEVEMENTS_LIST } from "./data";
 ---
 
-<ul
-  class="w-full flex flex-col gap-4
-    max-md:col-auto max-md:row-auto
-    md:flex-row md:size-full md:col-start-1 md:col-end-3 md:row-start-23 md:row-span-2
-    xl:row-start-14 xl:row-span-2 xl:h-full xl:gap-6"
-  aria-label="Achievements"
+<section
+  aria-labelledby="achievements-heading"
+  class={`w-full ${FEATURE_GRID_POSITIONS.achievements}`}
 >
-  {
-    ACHIEVEMENTS_LIST.map(({ title, description, Icon }, index) => (
-      <li class="card flex  gap-4  justify-between items-center  xl:flex-1 xl:h-full ">
-        <div class="flex items-center gap-2 w-1/3">
-          <Icon
-            aria-hidden="true"
-            class={`size-10 shrink-0 ${
-              index !== 2 ? "stroke-accent" : "fill-accent"
-            }`}
-          />
-          <span class=" md:text-lg">{title}</span>
-        </div>
+  <h2 id="achievements-heading" class="sr-only">Achievements</h2>
 
-        <p class="w-2/3 md:text-center text-sm md:text-base">{description}</p>
-      </li>
-    ))
-  }
-</ul>
+  <ul class="flex w-full flex-col gap-4 md:flex-row md:size-full xl:h-full xl:gap-6">
+    {
+      ACHIEVEMENTS_LIST.map(({ title, description, Icon, iconVariant }) => (
+        <li class="card flex gap-4 justify-between items-center xl:flex-1 xl:h-full">
+          <div class="flex items-center gap-2 w-1/3">
+            <Icon
+              aria-hidden="true"
+              class={`size-10 shrink-0 ${
+                iconVariant === "stroke" ? "stroke-accent" : "fill-accent"
+              }`}
+            />
+            <span class="md:text-lg">{title}</span>
+          </div>
+
+          <p class="w-2/3 md:text-center text-sm md:text-base">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

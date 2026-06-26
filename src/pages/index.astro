@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
+import { MAIN_GRID_CLASS } from "@/layouts/grid-config";
+import { PROFILE } from "@/shared/constants/profile";
 
 import {
   Hero,
@@ -9,20 +11,12 @@ import {
   TechStack,
   Socials,
   Achievements,
-  DialogForm
+  DialogForm,
 } from "@/features";
-
-const mainGridClass = [
-  "w-80 mx-auto py-6 min-h-dvh grid grid-cols-1 gap-4 place-items-center place-content-center",
-  "max-md:w-full max-md:max-w-80 max-md:px-4 max-md:min-h-0 max-md:place-items-stretch max-md:place-content-start max-md:gap-5",
-  "md:w-180 md:grid-cols-2 md:grid-rows-[repeat(24,2rem)]",
-  "xl:w-6xl xl:grid-cols-3 xl:grid-rows-[repeat(16,2rem)] xl:gap-6",
-  "3xl:w-450 3xl:grid-cols-5 3xl:grid-rows-[repeat(15,2rem)]",
-].join(" ");
 ---
 
 <BaseLayout>
-  <main id="main-content" class={mainGridClass}>
+  <main id="main-content" class={MAIN_GRID_CLASS}>
     <Hero />
     <LetsTalk />
     <AboutMe />
@@ -30,8 +24,8 @@ const mainGridClass = [
     <TechStack />
     <Achievements />
     <Socials />
-    <DialogForm/>
-    <footer class="sr-only">Martin Viera portfolio</footer>
+    <DialogForm />
+    <footer class="sr-only">{PROFILE.name} portfolio</footer>
   </main>
 </BaseLayout>
 

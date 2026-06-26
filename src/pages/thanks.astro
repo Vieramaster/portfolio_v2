@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/base-layout.astro";
+import { PROFILE } from "@/shared/constants/profile";
+---
+
+<BaseLayout
+  title={`Thank you | ${PROFILE.name}`}
+  description="Your message has been sent successfully."
+>
+  <main
+    id="main-content"
+    class="mx-auto flex min-h-dvh max-w-md flex-col items-center justify-center gap-6 px-4 py-12 text-center"
+  >
+    <h1 class="text-3xl">Message sent!</h1>
+    <p class="text-secondary">
+      Thanks for reaching out. I'll get back to you as soon as possible.
+    </p>
+    <a
+      href="/"
+      class="rounded-md bg-accent px-6 py-2 font-semibold text-button-text transition-colors hover:bg-button-hover"
+    >
+      Back to portfolio
+    </a>
+  </main>
+</BaseLayout>

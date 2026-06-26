@@ -1,15 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import { HERO_DATA } from "./data";
+import { FEATURE_GRID_POSITIONS } from "@/layouts/grid-config";
+import { PROFILE } from "@/shared/constants/profile";
 
-const { name, role, image, imageAlt } = HERO_DATA;
+const { name, jobTitle, image, imageAlt } = PROFILE;
 ---
 
 <section
   role="banner"
-  class="card w-full flex flex-col gap-4 justify-center items-center text-center
-  md:row-span-7 md:size-full
-  xl:col-start-1 xl:row-span-7"
+  class={`card w-full flex flex-col gap-4 justify-center items-center text-center ${FEATURE_GRID_POSITIONS.hero}`}
   aria-labelledby="hero-name"
 >
   <figure
@@ -25,6 +24,6 @@ const { name, role, image, imageAlt } = HERO_DATA;
 
   <header>
     <h1 id="hero-name">{name}</h1>
-    <p class="text-xl xl:text-2xl ">{role}</p>
+    <p class="text-xl xl:text-2xl">{jobTitle}</p>
   </header>
 </section>
