@@ -2,11 +2,15 @@
 import { PROJECTS_LIST } from "./data";
 import ProjectCard from "./components/project-card.astro";
 import { FEATURE_GRID_POSITIONS } from "@/layouts/grid-config";
+import { BREAKPOINT_3XL } from "@/shared/constants/breakpoints";
 
-const carouselStyles = PROJECTS_LIST.map(
+const carouselSlideStyles = PROJECTS_LIST.map(
   (_, index) =>
     `[data-slider]:has(#proj-slide-${index}:checked) [data-slider-track]{transform:translateX(-${index * 100}cqw)}`,
 ).join("");
+
+// Solo aplicar el desplazamiento del carrusel por debajo de 3xl; en desktop se muestran los 3 a la vez.
+const carouselStyles = `@media (max-width: calc(${BREAKPOINT_3XL} - 0.0625rem)){${carouselSlideStyles}}`;
 ---
 
 <section

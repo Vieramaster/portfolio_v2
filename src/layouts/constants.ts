@@ -1,11 +1,6 @@
 import { PROFILE } from "@/shared/constants/profile";
-import type { SoftGridConfig } from "./types";
 
-export const SOFT_GRID_DEFAULTS = {
-  grid: 60,
-  speedX: 0.15,
-  speedY: -0.15,
-} as const satisfies SoftGridConfig;
+export { SOFT_GRID_DEFAULTS } from "./soft-grid-defaults";
 
 export const SEO_DEFAULTS = {
   siteName: `${PROFILE.name} Portfolio`,

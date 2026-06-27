@@ -75,8 +75,10 @@ const jsonLd = {
 
     <title>{seo.title}</title>
 
-    <Font cssVariable="--font-SpaceGrotesk" preload />
-    <Font cssVariable="--font-JetBrainsMono" preload/>
+    <slot name="head" />
+
+    <Font cssVariable="--font-SpaceGrotesk" />
+    <Font cssVariable="--font-JetBrainsMono" />
 
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp, Telegram, Discord, etc.) -->
     <meta property="og:type" content="website" />

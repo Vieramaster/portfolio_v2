@@ -1,7 +1,9 @@
 ---
+import { getImage } from "astro:assets";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { MAIN_GRID_CLASS } from "@/layouts/grid-config";
 import { PROFILE } from "@/shared/constants/profile";
+import { PROJECTS_LIST } from "@/features/projects/data";
 
 import {
   Hero,
@@ -13,9 +15,23 @@ import {
   Achievements,
   DialogForm,
 } from "@/features";
+
+const projectLcp = await getImage({
+  src: PROJECTS_LIST[0].image,
+  width: 600,
+  height: 289,
+  format: "webp",
+});
 ---
 
 <BaseLayout>
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={projectLcp.src}
+    fetchpriority="high"
+  />
   <main id="main-content" class={MAIN_GRID_CLASS}>
     <Hero />
     <LetsTalk />

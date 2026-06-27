@@ -75,7 +75,6 @@
 @theme inline {
   --font-heading: var(--font-SpaceGrotesk);
   --font-mono: var(--font-JetBrainsMono);
-  --font-snippet: var(--font-Firacode);
 }
 
 /* =========================

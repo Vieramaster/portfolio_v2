@@ -1,5 +1,5 @@
 import { drawGrid, refreshGridTheme } from "./grid-rendered";
-import { SOFT_GRID_DEFAULTS } from "../../constants";
+import { SOFT_GRID_DEFAULTS } from "../../soft-grid-defaults";
 
 interface GridConfig {
   grid: number;

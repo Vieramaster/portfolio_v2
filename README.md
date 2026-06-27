@@ -1,43 +1,23 @@
-# Astro Starter Kit: Minimal
+# Frontend Portfolio
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+Modern frontend portfolio built with Astro, TypeScript and Tailwind CSS.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This repository showcases my approach to software architecture, accessibility, performance and modern frontend development.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## About Me
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Hi, I'm Martin, a Frontend Developer from Argentina with nearly three years of experience building modern web applications.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+I enjoy turning ideas into practical solutions that solve real problems. Instead of creating projects solely to practice new technologies, I prefer building applications that have a clear purpose and can make everyday work easier.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+My main project, **OptiGuide**, was created to improve the onboarding process for new optical salespeople. It provides structured learning resources to replace outdated training materials and also includes tools that I continue to use in my daily work. Seeing software become genuinely useful for other people is one of the things I find most rewarding about development.
 
-Any static assets, like images, can be placed in the `public/` directory.
+I primarily work with React, TypeScript and Tailwind CSS, technologies I appreciate for their flexibility, type safety and ability to support clean, maintainable code. I'm currently expanding my skills with Next.js while continuing to deepen my frontend knowledge.
 
-## 🧞 Commands
+Software architecture is one of the areas I value most. I believe that a well-organized codebase is easier to understand, maintain and evolve. I prefer planning before implementation, keeping solutions simple until complexity genuinely requires additional abstraction.
 
-All commands are run from the root of the project, from a terminal:
+Before transitioning into software development, I spent over 15 years working in customer service. That experience taught me how to understand people's needs, communicate effectively and focus on solving problems instead of simply delivering features. Today, I bring that same mindset into every project I build.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+I'm currently looking for my first professional Frontend Developer opportunity, where I can continue learning from experienced engineers, contribute to meaningful products and keep growing through real-world challenges.
