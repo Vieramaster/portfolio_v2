@@ -3,13 +3,13 @@ import { CloseIco } from "@/shared/components/icons/ui";
 import { CONTACT_FORM_ACTION } from "./constants";
 import { FORM_FIELDS } from "./data";
 
-const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-label";
+const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-text";
 ---
 
 <dialog
   id="contact-modal"
   aria-labelledby="contact-modal-title"
-  class="m-auto w-full max-w-md rounded-md border-0 bg-dialog-surface p-4 text-dialog-label"
+  class="m-auto w-full max-w-md rounded-md border-0 bg-dialog-surface p-4"
 >
   <button
     type="button"
@@ -22,14 +22,14 @@ const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-label";
   </button>
 
   <form action={CONTACT_FORM_ACTION} method="POST" class="flex flex-col gap-4">
-    <h2 id="contact-modal-title" class="m-0 text-3xl text-dialog-text">
+    <h2 id="contact-modal-title" class="m-0 text-3xl text-dialog-title">
       Send me a message!
     </h2>
 
     {
       FORM_FIELDS.map(
         ({ type, name, placeholder, rows, autocomplete, label }) => (
-          <label for={name} class="flex flex-col gap-1">
+          <label for={name} class="flex flex-col gap-1  text-dialog-label">
             <span class="font-semibold">{label}</span>
 
             {type === "textarea" ? (
@@ -63,7 +63,7 @@ const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-label";
 
     <button
       type="submit"
-      class="self-end w-1/2 cursor-pointer rounded-md border-2 border-accent px-4 py-2 font-semibold duration-300 hover:bg-accent hover:text-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dialog-ring"
+      class="self-end w-1/2 cursor-pointer rounded-md border-2 border-accent px-4 py-2 font-semibold duration-300 hover:bg-accent hover:text-surface text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dialog-ring"
     >
       Send
     </button>

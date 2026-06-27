@@ -63,11 +63,12 @@
   --color-link-hover: var(--color-power);
 
   /* Dialog */
-  --color-dialog-surface: var(--color-gray-600);
-  --color-dialog-input: var(--color-gray-400);
+  --color-dialog-surface: var(  --color-modern-gray-medium);
+  --color-dialog-input: var(--color-white);
   --color-dialog-ring: var(--color-power-dark);
-  --color-dialog-text: var(--color-power);
   --color-dialog-label: var(--color-white);
+  --color-dialog-text: var(--color-black);
+  --color-dialog-title:var(--color-power);
 
   /* Fonts (TOKENS ONLY) */
 }
