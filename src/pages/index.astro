@@ -18,9 +18,6 @@ import {
 
 const projectLcp = await getImage({
   src: PROJECTS_LIST[0].image,
-  width: 600,
-  height: 289,
-  format: "webp",
 });
 ---
 
@@ -44,9 +41,3 @@ const projectLcp = await getImage({
     <footer class="sr-only">{PROFILE.name} portfolio</footer>
   </main>
 </BaseLayout>
-
-<script>
-  import { initClient } from "@/layouts/logic/init";
-
-  initClient();
-</script>

@@ -4,7 +4,7 @@ export interface Project {
   title: string;
   description: string;
   image: ImageMetadata;
-  imageAlt?: string;
+  imageAlt: string;
   projectURL: string;
   githubURL: string;
   techs: readonly string[];

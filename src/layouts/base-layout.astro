@@ -118,5 +118,36 @@ const jsonLd = {
       aria-hidden="true"></canvas>
 
     <slot />
+
+    <script>
+      const loadGridAnimation = () => {
+        void import("./logic/background-animation/body-grid-animation").then(
+          ({ bodyGridAnimation }) => bodyGridAnimation(),
+        );
+      };
+
+      const scheduleWhenIdle = (run: () => void) => {
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(run, { timeout: 4_000 });
+        } else {
+          setTimeout(run, 200);
+        }
+      };
+
+      const scheduleAfterLoad = () => {
+        if (document.readyState === "complete") {
+          scheduleWhenIdle(loadGridAnimation);
+          return;
+        }
+
+        window.addEventListener(
+          "load",
+          () => scheduleWhenIdle(loadGridAnimation),
+          { once: true },
+        );
+      };
+
+      scheduleAfterLoad();
+    </script>
   </body>
 </html>

@@ -1,77 +1,68 @@
 ---
 import { PROJECTS_LIST } from "./data";
+
 import ProjectCard from "./components/project-card.astro";
+
 import { FEATURE_GRID_POSITIONS } from "@/layouts/grid-config";
-import { BREAKPOINT_3XL } from "@/shared/constants/breakpoints";
-
-const carouselSlideStyles = PROJECTS_LIST.map(
-  (_, index) =>
-    `[data-slider]:has(#proj-slide-${index}:checked) [data-slider-track]{transform:translateX(-${index * 100}cqw)}`,
-).join("");
-
-// Solo aplicar el desplazamiento del carrusel por debajo de 3xl; en desktop se muestran los 3 a la vez.
-const carouselStyles = `@media (max-width: calc(${BREAKPOINT_3XL} - 0.0625rem)){${carouselSlideStyles}}`;
 ---
 
 <section
-  class={`card w-full flex flex-col ${FEATURE_GRID_POSITIONS.projects}`}
+  class={`card relative flex w-full flex-col ${FEATURE_GRID_POSITIONS.projects}`}
   aria-labelledby="projects-heading"
 >
-  <header class="flex items-center text-start justify-between gap-2 mb-3">
+  <header class="mb-3 flex items-center justify-between gap-2">
     <h2 id="projects-heading" class="flex gap-3">
-      <span class="text-accent font-heading hidden 3xl:block">Featured</span>
+      <span class="hidden font-heading text-accent 3xl:block">Featured</span>
       Projects
     </h2>
   </header>
 
   <div
-    data-slider
+    class="viewport overflow-hidden size-full relative"
     role="region"
     aria-roledescription="carousel"
-    aria-label="Projects"
-    class="overflow-x-clip w-full relative flex-1 flex flex-col min-h-0 @container"
+    aria-label="Projects carousel"
   >
-    <ul
-      data-slider-track
-      class="flex flex-1 min-h-0 shrink-0 self-start transition-transform duration-300 ease-in-out
-        3xl:w-full 3xl:gap-6"
+    <nav
+      class="controls absolute left-1/2 bottom-2 flex gap-3 z-10 -translate-x-1/2 top-43 xl:top-38 3xl:hidden"
+      aria-label="Project carousel navigation"
     >
       {
-        PROJECTS_LIST.map((project, index) => (
-          <ProjectCard
-            {...project}
-            baseIndex={index}
-            totalSlides={PROJECTS_LIST.length}
+        PROJECTS_LIST.map((item, index) => (
+          <input
+            id={`r${index + 1}`}
+            type="radio"
+            name="slider"
+            checked={index === 0}
+            aria-label={`Show ${item.title} project`}
+            class="appearance-none size-4 rounded-full border border-white checked:bg-accent cursor-pointer"
           />
         ))
       }
-    </ul>
+    </nav>
 
-    <nav
-      aria-label="Project slides"
-      class="absolute left-1/2 -translate-x-1/2 top-48 md:top-49 flex items-center gap-2 3xl:hidden"
+    <ul
+      class="track flex h-full w-[300%] transition-transform duration-500 3xl:w-full 3xl:gap-5 3xl:transition-none"
     >
       {
-        PROJECTS_LIST.map((_, i) => (
-          <label class="relative size-3 cursor-pointer">
-            <input
-              type="radio"
-              name="projects-carousel"
-              id={`proj-slide-${i}`}
-              class="peer absolute inset-0 size-full opacity-0 cursor-pointer"
-              checked={i === 0}
-              data-slider-radio
-              aria-label={`Go to project ${i + 1}`}
-            />
-            <span
-              class="block size-3 rounded-full ring-1 ring-white bg-surface transition-colors peer-checked:bg-accent peer-focus-visible:outline peer-focus-visible:outline-accent"
-              aria-hidden="true"
-            />
-          </label>
+        PROJECTS_LIST.map((item, index) => (
+          <ProjectCard project={item} index={index} />
         ))
       }
-    </nav>
+    </ul>
   </div>
 </section>
 
-<style is:global set:html={carouselStyles}></style>
+<style>
+  @media (max-width: 112.499rem) {
+    .viewport:has(#r1:checked) .track {
+      transform: translateX(0%);
+    }
+    .viewport:has(#r2:checked) .track {
+      transform: translateX(-33.333%);
+    }
+    .viewport:has(#r3:checked) .track {
+      transform: translateX(-66.666%);
+    }
+  }
+</style>
