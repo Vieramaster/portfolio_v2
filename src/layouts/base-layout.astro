@@ -111,7 +111,7 @@ const jsonLd = {
     data-speed-x={speedX}
     data-speed-y={speedY}
   >
-    <a href="#main-content" class="sr-only">Skip to main content</a>
+   
 
     <canvas
       class="absolute inset-0 -z-10 block h-full w-full pointer-events-none"
@@ -120,34 +120,9 @@ const jsonLd = {
     <slot />
 
     <script>
-      const loadGridAnimation = () => {
-        void import("./logic/background-animation/body-grid-animation").then(
-          ({ bodyGridAnimation }) => bodyGridAnimation(),
-        );
-      };
+      import { initClient } from "./logic/init";
 
-      const scheduleWhenIdle = (run: () => void) => {
-        if ("requestIdleCallback" in window) {
-          requestIdleCallback(run, { timeout: 4_000 });
-        } else {
-          setTimeout(run, 200);
-        }
-      };
-
-      const scheduleAfterLoad = () => {
-        if (document.readyState === "complete") {
-          scheduleWhenIdle(loadGridAnimation);
-          return;
-        }
-
-        window.addEventListener(
-          "load",
-          () => scheduleWhenIdle(loadGridAnimation),
-          { once: true },
-        );
-      };
-
-      scheduleAfterLoad();
+      initClient();
     </script>
   </body>
 </html>
