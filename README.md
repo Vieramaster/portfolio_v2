@@ -6,18 +6,23 @@ This repository showcases my approach to software architecture, accessibility, p
 
 ---
 
+## Tech Stack
+
+![Astro](https://img.shields.io/badge/Astro-111827?logo=astro)
+![React](https://img.shields.io/badge/React-111827?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-111827?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-111827?logo=tailwindcss)
+
 ## About Me
 
 Hi, I'm Martin, a Frontend Developer from Argentina with nearly three years of experience building modern web applications.
 
-I enjoy turning ideas into practical solutions that solve real problems. Instead of creating projects solely to practice new technologies, I prefer building applications that have a clear purpose and can make everyday work easier.
+I enjoy turning ideas into practical solutions that solve real-world problems. Rather than building projects solely to learn new technologies, I prefer creating applications with a clear purpose that people can genuinely use.
 
-My main project, **OptiGuide**, was created to improve the onboarding process for new optical salespeople. It provides structured learning resources to replace outdated training materials and also includes tools that I continue to use in my daily work. Seeing software become genuinely useful for other people is one of the things I find most rewarding about development.
+My main project, OptiGuide, was created to improve the onboarding process for new optical salespeople. It replaces outdated training materials with a more structured learning experience and includes tools that I continue to use in my daily work. It's also used by new team members as part of their learning process, making it a project with real impact beyond my own development.
 
-I primarily work with React, TypeScript and Tailwind CSS, technologies I appreciate for their flexibility, type safety and ability to support clean, maintainable code. I'm currently expanding my skills with Next.js while continuing to deepen my frontend knowledge.
+I primarily work with React, TypeScript and Tailwind CSS, and I'm currently expanding my knowledge with Next.js. I'm particularly interested in software architecture, maintainable code and building interfaces that balance usability with thoughtful visual design.
 
-Software architecture is one of the areas I value most. I believe that a well-organized codebase is easier to understand, maintain and evolve. I prefer planning before implementation, keeping solutions simple until complexity genuinely requires additional abstraction.
+Before transitioning into software development, I spent over 15 years working in customer service. That experience taught me how to understand users' needs, communicate effectively and focus on solving problems rather than simply delivering features. Those skills continue to influence how I approach every project I build.
 
-Before transitioning into software development, I spent over 15 years working in customer service. That experience taught me how to understand people's needs, communicate effectively and focus on solving problems instead of simply delivering features. Today, I bring that same mindset into every project I build.
-
-I'm currently looking for my first professional Frontend Developer opportunity, where I can continue learning from experienced engineers, contribute to meaningful products and keep growing through real-world challenges.
+I'm constantly looking to improve my skills, learn from experienced developers and build software that makes everyday work simpler and more effective.
