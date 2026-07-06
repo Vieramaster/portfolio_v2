@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -4 84 84" width="32" height="32">
   <style>
-    .bar { fill: #07070c; }
-    .mark { fill: #bccf07; }
+    .bar { fill: #c3d809; }
+    .mark { fill: #c3d809; }
     @media (prefers-color-scheme: dark) {
-      .bar { fill: #d4e44a; }
+      .bar { fill: #c3d809; }
     }
   </style>
   <path class="bar" d="M -0.5,-0.5 C 4.5,-0.5 9.5,-0.5 14.5,-0.5C 14.5,3.16667 14.5,6.83333 14.5,10.5C 14.5,32.1667 14.5,53.8333 14.5,75.5C 9.5,75.5 4.5,75.5 -0.5,75.5C -0.5,50.1667 -0.5,24.8333 -0.5,-0.5 Z"/>

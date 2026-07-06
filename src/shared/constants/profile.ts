@@ -1,4 +1,4 @@
-import heroImage from "@/assets/images/hero/hero.webp";
+import heroImage from "@/assets/images/hero/hero.webp"
 
 export const PROFILE = {
   name: "Martín Viera",
