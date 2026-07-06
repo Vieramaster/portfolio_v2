@@ -16,31 +16,31 @@ export const FEATURE_GRID_POSITIONS = {
     "md:row-start-8 md:row-span-4 md:size-full",
     "xl:row-start-8 xl:row-span-4",
     "3xl:row-span-4",
-  ].join(""),
+  ].join(" "),
   aboutMe: [
     "max-md:col-auto max-md:row-auto",
     "md:size-full md:col-start-2 md:row-span-11",
     "xl:col-start-2 xl:col-end-4 xl:row-span-6 xl:row-start-1",
     "3xl:col-start-2 3xl:col-end-6 3xl:row-start-1 3xl:row-span-5"
-  ].join(""),
+  ].join(" "),
   projects: [
     "md:size-full md:col-start-2 md:row-start-12 md:row-span-11",
     "xl:col-start-3 xl:row-start-7 xl:row-span-9 ",
     "3xl:col-end-6 3xl:row-start-6 3xl:row-span-10",
-  ].join(""),
+  ].join(" "),
   techStack: [
     "md:col-start-1 md:row-start-12 md:row-span-9 md:size-full",
     "xl:col-start-2 xl:row-start-7 xl:row-span-7 ",
     "3xl:row-start-6 3xl:row-span-8"
-  ].join(""),
+  ].join(" "),
   achievements: [
     "md:flex max-md:col-auto max-md:row-auto md:size-full md:col-start-1 md:col-end-3 md:row-start-23 md:row-span-2",
     "xl:row-start-14 xl:row-span-2 xl:h-full",
-  ].join("")
+  ].join(" ")
   ,
   socials: [
     "max-md:col-auto md:size-full md:col-start-1 md:row-start-21 md:row-span-2 md:justify-center",
     "xl:col-start-1 xl:row-start-12 xl:row-span-2 ",
     " 3xl:row-span-2 3xl:row-start-12"
-  ].join("")
+  ].join(" ")
 } as const;
