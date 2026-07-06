@@ -6,22 +6,23 @@ import { PROFILE } from "@/shared/constants/profile";
 const { name, jobTitle, image, imageAlt } = PROFILE;
 ---
 
-
 <section
   role="banner"
   class={`card w-full flex flex-col gap-4 justify-center items-center text-center ${FEATURE_GRID_POSITIONS.hero}`}
   aria-labelledby="hero-name"
 >
-  <Image
-    src={image}
-    alt={imageAlt}
-    class="size-60 object-cover "
-    loading="eager"
-    decoding="async"
-    width={208}
-    height={208}
-    draggable="false"
-  />
+  <figure>
+    <Image
+      src={image}
+      alt={imageAlt}
+      class="size-60 object-cover"
+      loading="eager"
+      decoding="async"
+      width={208}
+      height={208}
+      draggable="false"
+    />
+  </figure>
 
   <header>
     <h1 id="hero-name">{name}</h1>
