@@ -11,19 +11,16 @@ const { name, jobTitle, image, imageAlt } = PROFILE;
   class={`card w-full flex flex-col gap-4 justify-center items-center text-center ${FEATURE_GRID_POSITIONS.hero}`}
   aria-labelledby="hero-name"
 >
-  <figure
-    class="size-48 border border-accent rounded-full bg-background xl:size-52 m-0 overflow-hidden"
-  >
-    <Image
-      src={image}
-      alt={imageAlt}
-      class="size-full object-cover"
-      loading="eager"
-      decoding="async"
-      width={208}
-      height={208}
-    />
-  </figure>
+  <Image
+    src={image}
+    alt={imageAlt}
+    class="size-60 object-cover "
+    loading="eager"
+    decoding="async"
+    width={208}
+    height={208}
+    draggable="false"
+  />
 
   <header>
     <h1 id="hero-name">{name}</h1>
