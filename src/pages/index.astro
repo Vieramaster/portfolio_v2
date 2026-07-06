@@ -1,7 +1,7 @@
 ---
 import { getImage } from "astro:assets";
 import BaseLayout from "@/layouts/base-layout.astro";
-import { MAIN_GRID_CLASS } from "@/layouts/grid-config";
+import { FEATURE_GRID_POSITIONS } from "@/shared/constants/feature-grid-positions";
 import { PROFILE } from "@/shared/constants/profile";
 import { PROJECTS_LIST } from "@/features/projects/data";
 
@@ -29,7 +29,7 @@ const projectLcp = await getImage({
     href={projectLcp.src}
     fetchpriority="high"
   />
-  <main id="main-content" class={MAIN_GRID_CLASS}>
+  <main id="main-content" class={FEATURE_GRID_POSITIONS.main}>
     <Hero />
     <LetsTalk />
     <AboutMe />

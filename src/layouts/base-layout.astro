@@ -2,8 +2,8 @@
 import "@/styles/global.css";
 import { Font } from "astro:assets";
 import { PROFILE } from "@/shared/constants/profile";
-import { SEO_DEFAULTS, SOFT_GRID_DEFAULTS } from "./constants";
-
+import { SEO_DEFAULTS } from "./data";
+import { SOFT_GRID_DEFAULTS } from "./constants";
 import type { SoftGridConfig } from "./types";
 
 interface Props extends Partial<SoftGridConfig> {
@@ -111,8 +111,6 @@ const jsonLd = {
     data-speed-x={speedX}
     data-speed-y={speedY}
   >
-   
-
     <canvas
       class="absolute inset-0 -z-10 block h-full w-full pointer-events-none"
       aria-hidden="true"></canvas>
