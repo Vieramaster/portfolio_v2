@@ -33,7 +33,7 @@ export const FEATURE_GRID_POSITIONS = {
     "xl:col-start-2 xl:row-start-7 xl:row-span-7 ",
     "3xl:row-start-6 3xl:row-span-8"
   ].join(""),
-  ments: [
+  achievements: [
     "md:flex max-md:col-auto max-md:row-auto md:size-full md:col-start-1 md:col-end-3 md:row-start-23 md:row-span-2",
     "xl:row-start-14 xl:row-span-2 xl:h-full",
   ].join("")
