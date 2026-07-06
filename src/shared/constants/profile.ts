@@ -1,10 +1,10 @@
-import heroImage from "@/assets/images/hero/hero.webp"
+import heroProfile from "@/assets/images/hero-profile/hero-profile.webp"
 
 export const PROFILE = {
   name: "Martín Viera",
   jobTitle: "Frontend Developer",
   location: "Mar del Plata, Argentina",
-  image: heroImage,
+  image: heroProfile,
   imageAlt:
     "Portrait of Martín Viera with his face turned slightly to the right, serious expression, black T-shirt, dark background with soft lighting.",
   cv: {
