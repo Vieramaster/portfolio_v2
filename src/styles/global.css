@@ -7,34 +7,36 @@
 @theme {
   --breakpoint-3xl: 112.5rem;
 
-  /* Colors */
+  /* =========================
+     PALETTE
+  ========================= */
+
+  /* Accent */
   --color-power: #c3d809;
   --color-power-light: #dbe84b;
   --color-power-dark: #a0b207;
 
-  --color-modern-gray-lightest: #535153;
-  --color-modern-gray-light: #333133;
-  --color-modern-gray-light-medium: #2d2b2d;
-  --color-modern-gray-medium: #2a282a;
-  --color-modern-gray-medium-dark: #262426;
-  --color-modern-gray: #222022;
-  --color-modern-gray-dark-medium: #1a191a;
-  --color-modern-gray-dark: #111011;
+  /* Neutral */
+  --color-gray-950: #111011;
+  --color-gray-700: #292729;
+  --color-gray-600: #3a383a;
 
+  /* Text */
   --color-white: #f5f5f5;
   --color-gray-200: #d4d4d4;
   --color-gray-400: #9b9b9b;
-  --color-gray-600: #7a7a7a;
-  --color-border-gray: #333133;
+
+  /* =========================
+     SEMANTIC TOKENS
+  ========================= */
 
   /* Surfaces */
-  --color-background: var(--color-modern-gray-dark);
-  --color-surface: var(--color-modern-gray);
-  --color-surface-hover: var(--color-modern-gray-light);
+  --color-background: var(--color-gray-950);
+  --color-surface: var(--color-gray-700);
 
   --color-grid-stroke: color-mix(
     in srgb,
-    var(--color-modern-gray) 75%,
+    var(--color-gray-700) 75%,
     transparent
   );
 
@@ -45,32 +47,22 @@
 
   /* Accent */
   --color-accent: var(--color-power);
-  --color-accent-hover: var(--color-power);
   --color-accent-active: var(--color-power-light);
   --color-accent-dark: var(--color-power-dark);
 
   /* Buttons */
-  --color-button: var(--color-power);
   --color-button-hover: var(--color-power-light);
-  --color-button-active: var(--color-power-dark);
-  --color-button-text: var(--color-modern-gray-dark);
+  --color-button-text: var(--color-gray-950);
 
   /* Borders */
-  --color-border: var(--color-border-gray);
-
-  /* Links */
-  --color-link: var(--color-gray-200);
-  --color-link-hover: var(--color-power);
+  --color-border: var(--color-gray-600);
 
   /* Dialog */
-  --color-dialog-surface: var(  --color-modern-gray-medium);
   --color-dialog-input: var(--color-white);
   --color-dialog-ring: var(--color-power-dark);
   --color-dialog-label: var(--color-white);
-  --color-dialog-text: var(--color-black);
-  --color-dialog-title:var(--color-power);
-
-  /* Fonts (TOKENS ONLY) */
+  --color-dialog-text: var(--color-gray-950);
+  --color-dialog-title: var(--color-power);
 }
 
 @theme inline {
@@ -90,7 +82,7 @@
   h1,
   h2,
   h3 {
-    @apply font-bold font-heading text-accent ;
+    @apply font-bold font-heading text-accent;
   }
 
   h1 {
@@ -102,26 +94,8 @@
   }
 
   h3 {
-    @apply  text-xl md:text-2xl  font-semibold;
+    @apply text-xl md:text-2xl font-semibold;
   }
-
-}
-
-/* =========================
-   BORDERS
-========================= */
-
-.gray-bordered,
-.accent-dark-bordered {
-  @apply border rounded-sm;
-}
-
-.gray-bordered {
-  @apply border-border p-2;
-}
-
-.accent-dark-bordered {
-  @apply border-accent-dark/30 px-2 py-1;
 }
 
 /* =========================
@@ -130,15 +104,18 @@
 
 .card {
   @apply w-full rounded-md bg-surface p-5;
+
+  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.75);
+
+  transition:
+    box-shadow 220ms ease-in-out,
+    border-color 220ms ease-in-out;
+
+  border: 1px solid transparent;
 }
 
-/* =========================
-   SHADOWS
-========================= */
-
-.card,
-.shadow-box {
-  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.75);
+.card:hover {
+  border-color: rgba(195, 216, 9, 0.15);
 }
 
 /* =========================
