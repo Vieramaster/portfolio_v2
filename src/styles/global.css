@@ -58,6 +58,7 @@
   --color-border: var(--color-gray-600);
 
   /* Dialog */
+  --color-dialog-surface:var(--color-gray-600);
   --color-dialog-input: var(--color-white);
   --color-dialog-ring: var(--color-power-dark);
   --color-dialog-label: var(--color-white);
