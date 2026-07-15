@@ -23,3 +23,22 @@ export const FORM_FIELDS = [
     rows: 5,
   },
 ] satisfies FormField[];
+
+export const FORM_CONFIG = [
+  {
+    name: "_subject",
+    value: "New message from martinviera.dev",
+  },
+  {
+    name: "_next",
+    value: "https://martinviera.dev/thanks",
+  },
+  {
+    name: "_captcha",
+    value: "true",
+  },
+  {
+    name: "_template",
+    value: "table",
+  },
+];

@@ -1,1 +1,2 @@
-export const CONTACT_FORM_ACTION = "https://formspree.io/f/mwvgvpjq"
+export const CONTACT_FORM_ACTION = "https://api.web3forms.com/submit"
+

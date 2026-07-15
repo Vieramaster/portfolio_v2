@@ -1,9 +1,10 @@
 ---
 import { CloseIco } from "@/shared/components/icons/ui";
-import { CONTACT_FORM_ACTION } from "./constants";
-import { FORM_FIELDS } from "./data";
+import { FORM_FIELDS, FORM_CONFIG } from "./data";
+import { PROFILE } from "@/shared/constants/profile";
 
-const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-text focus:ring-0 focus:outline-none";
+const fieldClass =
+  "rounded bg-dialog-input p-3 font-mono text-dialog-text focus:outline-none";
 ---
 
 <dialog
@@ -21,7 +22,11 @@ const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-text focus
     <CloseIco class="size-6 stroke-dialog-label" aria-hidden="true" />
   </button>
 
-  <form action={CONTACT_FORM_ACTION} method="POST" class="flex flex-col gap-4">
+  <form
+    action={`https://formsubmit.co/${PROFILE.social.email}`}
+    method="POST"
+    class="flex flex-col gap-4"
+  >
     <h2 id="contact-modal-title" class="m-0 text-3xl text-dialog-title">
       Send me a message!
     </h2>
@@ -29,7 +34,7 @@ const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-text focus
     {
       FORM_FIELDS.map(
         ({ type, name, placeholder, rows, autocomplete, label }) => (
-          <label for={name} class="flex flex-col gap-1  text-dialog-label">
+          <label for={name} class="flex flex-col gap-1 text-dialog-label">
             <span class="font-semibold">{label}</span>
 
             {type === "textarea" ? (
@@ -57,13 +62,23 @@ const fieldClass = "rounded bg-dialog-input p-3 font-mono text-dialog-text focus
       )
     }
 
-    <input type="hidden" name="_subject" value="new message" />
-    <input type="hidden" name="_redirect" value="/thanks" />
-    <input type="text" name="_gotcha" autocomplete="off" hidden />
+    {
+      FORM_CONFIG.map(({ name, value }) => (
+        <input type="hidden" name={name} value={value} />
+      ))
+    }
+
+    <input
+      type="text"
+      name="_honey"
+      class="hidden"
+      tabindex="-1"
+      autocomplete="off"
+    />
 
     <button
       type="submit"
-      class="self-end w-1/2 cursor-pointer rounded-md border-2 border-accent px-4 py-2 font-semibold duration-300 hover:bg-accent hover:text-surface text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dialog-ring"
+      class="self-end w-1/2 cursor-pointer rounded-md border-2 border-accent px-4 py-2 font-semibold text-white duration-300 hover:bg-accent hover:text-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dialog-ring"
     >
       Send
     </button>
