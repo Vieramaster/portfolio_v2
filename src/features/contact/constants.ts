@@ -1,1 +1,1 @@
-export const CONTACT_FORM_ACTION = "https://formspree.io/f/xeorqyyj";
+export const CONTACT_FORM_ACTION = "https://formspree.io/f/mwvgvpjq"
