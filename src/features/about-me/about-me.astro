@@ -12,9 +12,9 @@ import { ABOUT_ME_ITEMS } from "./data";
   <ul class="flex flex-col gap-3 list-none m-0 p-0">
     {
       ABOUT_ME_ITEMS.map(({ Icon, description }) => (
-        <li class="flex items-center gap-4">
+        <li class="flex items-start  gap-4">
           <span class="shrink-0" aria-hidden="true">
-            <Icon class="size-6 stroke-accent" />
+            <Icon class="size-6 mt-1 stroke-accent" />
           </span>
           <p>{description}</p>
         </li>
